@@ -3517,7 +3517,21 @@
                             <p>月面３・４</p>
                         </div>
                         <div class="price_info">
-                            <p>250円</p>
+                            <p id="data-sheet992">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbxkXTqkwURe52Pww__0ozSAr7FAMoVKxeUJJOwPPB7Mxplesy8mM-CmNusZMmWL0yM_LA/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet992').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 992:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
                         </div>
                         <div class="stoc_info">
                             <p> </p>
