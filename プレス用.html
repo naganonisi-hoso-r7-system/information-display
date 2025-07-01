@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sample</title>
+  <style>
+    .content {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="info">
+    <div class="info_img">
+      <img src="info.png">
+    </div>
+    <div class="info_text">
+      <span>
+        <h1>梶の葉祭向けインフォメーションディスプレイ</h1>
+      </span>
+    </div>
+    <style>
+      .info_img img {
+        max-height: 110px;
+      }
+
+      .info_img {
+        background-color: rgb(255, 255, 255);
+        height: 110px;
+        width: 295px;
+      }
+
+      .info_text {
+        background-color: black;
+        width: 100%;
+        height: 110px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .info_text h1 {
+        color: #ffffff;
+        font-size: 80px;
+        margin: 48px 0px 0px 0px;
+      }
+
+      .info {
+        display: flex;
+      }
+
+      .info_text span {
+        display: inline-block;
+        padding-left: 100%;
+        white-space: nowrap;
+        line-height: 1em;
+        animation: scrollAnime 20s linear infinite;
+      }
+
+      @keyframes scrollAnime {
+        0% {
+          transform: translateX(0)
+        }
+
+        100% {
+          transform: translateX(-100%)
+        }
+      }
+    </style>
+  </div>
+
+  <div class="titel">
+    <h1>販　　　売　　　状　　　況</h1>
+    <style>
+      .titel h1 {
+        font-size: 45px;
+        color: #ffffff;
+        margin: 0px;
+        text-align: center;
+      }
+
+      .title {
+        margin: 80px 0px 0px 0px;
+        width: 100%;
+      }
+    </style>
+  </div>
+
+  <div class="guide">
+    <div class="name">
+      <h1>商品名</h1>
+    </div>
+    <div class="place">
+      <h1>販売場所</h1>
+    </div>
+    <div class="price">
+      <h1>価格（税込）</h1>
+    </div>
+    <div class="stoc01">
+      <h1>在庫状況</h1>
+    </div>
+    <div class="stoc02">
+      <h1>再販情報</h1>
+    </div>
+    <style>
+      .guide h1 {
+        color: #ffffff;
+        font-size: 25px;
+      }
+
+      .name {
+        margin: 0px 0px 0px 278px;
+      }
+
+      .place {
+        margin: 0px 0px 0px 390px;
+      }
+
+      .price {
+        margin: 0px 0px 0px 175px;
+      }
+
+      .stoc01 {
+        margin: 0px 0px 0px 135px;
+      }
+
+      .stoc02 {
+        margin: 0px 0px 0px 250px;
+      }
+
+      .guide {
+        display: flex;
+        margin: -16px 0px 0px 0px;
+      }
+    </style>
+  </div>
+
+  <div class="info_block">
+    <div id="div1" class="content active">
+      <div class="textline">
+        <div class="name_info">
+          <p>カレーライス</p>
+        </div>
+        <div class="place_info">
+          <p>２６番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet13">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbwJuabahMB9sRZrNds7RLQjxjxlKdFIRun2WcNcyBLulKA8Z0UbeVpB-kQNVzLHkA0k/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet13').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 13:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="stoc_info">
+          <p>残りわずか</p>
+        </div>
+        <div class="resail_info">
+          <p>13:15～</p>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+            <p>チュロス（チョコ）</p>
+          </div>
+          <div class="place_info">
+            <p>３３番教室</p>
+          </div>
+          <div class="price_info">
+            <p>350円</p>
+          </div>
+          <div class="stoc_info">
+            <p>余裕あり</p>
+          </div>
+          <div class="resail_info">
+            <p>再販予定なし</p>
+          </div>
+        </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+            <p>ドーナツＡ</p>
+          </div>
+          <div class="place_info">
+            <p>３６番教室</p>
+          </div>
+          <div class="price_info">
+            <p>500円</p>
+          </div>
+          <div class="stoc_info">
+            <p>売り切れ</p>
+          </div>
+          <div class="resail_info">
+            <p>未定</p>
+          </div>
+        </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>ドーナツＢ</p>
+        </div>
+        <div class="place_info">
+          <p>３６番教室</p>
+        </div>
+        <div class="price_info">
+          <p>500円</p>
+        </div>
+        <div class="stoc_info">
+          <p>残りわずか</p>
+        </div>
+        <div class="resail_info">
+          <p>未定</p>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>たこやき</p>
+        </div>
+        <div class="place_info">
+          <p>ピロティ</p>
+        </div>
+        <div class="price_info">
+          <p>400円</p>
+        </div>
+        <div class="stoc_info">
+          <p>売り切れ</p>
+        </div>
+        <div class="resail_info">
+          <p>再販予定なし</p>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>クレープ（いちご）</p>
+        </div>
+        <div class="place_info">
+          <p>理科講義室</p>
+        </div>
+        <div class="price_info">
+          <p>150円</p>
+        </div>
+        <div class="stoc_info">
+          <p>余裕あり</p>
+        </div>
+        <div class="resail_info">
+          <p>再販予定なし</p>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>からあげ</p>
+        </div>
+        <div class="place_info">
+          <p>ピロティ</p>
+        </div>
+        <div class="price_info">
+          <p>500円</p>
+        </div>
+        <div class="stoc_info">
+          <p>売り切れ</p>
+        </div>
+        <div class="resail_info">
+          <p>14:30～</p>
+        </div>
+      </div>
+      <style>
+        .name_info {
+          width: 600px;
+          height: 120px;
+          margin: 0px;
+          background-color: rgb(0, 0, 0);
+        }
+
+        .place_info {
+          width: 350px;
+          height: 120px;
+          margin: 0px;
+          background-color: rgb(0, 0, 0);
+        }
+
+        .price_info {
+          width: 230px;
+          height: 120px;
+          margin: 0px;
+          background-color: rgb(0, 0, 0);
+        }
+
+        .stoc_info {
+          width: 320px;
+          height: 120px;
+          margin: 0px;
+          background-color: rgb(0, 0, 0);
+        }
+
+        .resail_info {
+          width: 382px;
+          height: 120px;
+          margin: 0px;
+          background-color: rgb(0, 0, 0);
+        }
+
+        .textline {
+          display: flex;
+        }
+      </style>
+    </div>
+    <style>
+      .info_block p {
+        color: rgb(255, 255, 255);
+        margin: 10px 0px 10px 0px;
+        font-size: 60px;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .info_block hr {
+        margin: 0px 3px 0px 3px;
+        color: #ffffff;
+      }
+
+      .info_block {
+        background-color: black;
+        width: 1882px;
+        height: 846px;
+        margin: -1% 1% 1% 1%;
+      }
+    </style>
+  </div>
+
+</body>
+
+</html>

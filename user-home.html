@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>コード入力ページ</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 105px;
+        }
+
+        input {
+            font-size: 24px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgb(0, 2, 101);
+        }
+
+        footer {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            height: 180px;
+            background-color: rgb(166, 166, 202);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header_h">
+            <div class="header_h_list">
+                <center>
+                    <h1 style="text-align:center">
+                        <font size="8">商品から検索</font>
+                    </h1>
+                </center>
+                <style type="text/css">
+                    .header_h h1 {
+                        color: rgb(255, 255, 255);
+                        text-align: center
+                    }
+                </style>
+                <style type="text/css">
+                    .header_h {
+                        height: 83px;
+                    }
+                </style>
+                <div class="hamburger-menu">
+                    <input type="checkbox" id="menu-btn-check">
+                    <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                    <!--ここからメニュー-->
+                    <div class="menu-content">
+                        <ul>
+                            <div class="menu_titil">
+                                <h3 style="text-align:center">
+                                    <font size="8">メニュー</font>
+                                </h3>
+                                <style tyle="text/css">
+                                    .menu_titel h3 {
+                                        color: rgb(0, 0, 0);
+                                    }
+                                </style>
+                            </div>
+                            <div class="guide">
+                                <style type="text/css">
+                                    .button_between {
+                                        background-color: rgb(65, 65, 65);
+                                        width: 100%;
+                                        height: 3px;
+                                        margin: 0px;
+                                    }
+                                </style>
+                                <style type="text/css">
+                                    .guide h4 {
+                                        margin: 30px 0px 0px 20px;
+                                    }
+                                </style>
+                            </div>
+                            <div class="use">
+                                <h4>
+                                    <font size="6">本ウェブアプリを使うにあたって</font>
+                                </h4>
+                                <div class="button_between"></div>
+                                <a href="https://webapp-system.github.io/stockn/useguide.html">
+                                    <div class="guide_box">
+                                        <h2>
+                                            <font size="7">使い方</font>
+                                        </h2>
+                                        <img src="img/pageback_g.png">
+                                        <style type="text/css">
+                                            .guide_box h2 {
+                                                height: 50px;
+                                                vertical-align: middle;
+                                                float: left;
+                                                color: rgb(0, 0, 0);
+                                                margin: 40px 0px 40px 20px;
+                                            }
+
+                                            .guide_box img {
+                                                height: 50px;
+                                                float: right;
+                                                margin: 50px 20px 50px 0px;
+                                            }
+                                        </style>
+                                        <style type="text/css">
+                                            .guide_box {
+                                                background-color: rgb(213, 213, 213);
+                                                width: 100%;
+                                                height: 150px;
+                                                margin: 0px;
+                                            }
+                                        </style>
+                                    </div>
+                                </a>
+                                <div class="button_between"></div>
+                                <a href="https://webapp-system.github.io/stockn/caution.html">
+                                    <div class="caution_box">
+                                        <h2>
+                                            <font size="7">注意事項</font>
+                                        </h2>
+                                        <img src="img/pageback_g.png">
+                                        <style type="text/css">
+                                            .caution_box h2 {
+                                                height: 50px;
+                                                vertical-align: middle;
+                                                float: left;
+                                                color: rgb(0, 0, 0);
+                                                margin: 40px 0px 40px 20px;
+                                            }
+
+                                            .caution_box img {
+                                                height: 50px;
+                                                float: right;
+                                                margin: 50px 20px 50px 0px;
+                                            }
+                                        </style>
+                                        <style type="text/css">
+                                            .caution_box {
+                                                background-color: rgb(213, 213, 213);
+                                                width: 100%;
+                                                height: 150px;
+                                                margin: 0px;
+                                            }
+                                        </style>
+                                    </div>
+                                </a>
+                                <div class="button_between"></div>
+                                <a href="https://webapp-system.github.io/stockn/rules.html">
+                                    <div class="rules_box">
+                                        <h2>
+                                            <font size="7">利用規約</font>
+                                        </h2>
+                                        <img src="img/pageback_g.png">
+                                        <style type="text/css">
+                                            .rules_box h2 {
+                                                height: 50px;
+                                                vertical-align: middle;
+                                                float: left;
+                                                color: rgb(0, 0, 0);
+                                                margin: 40px 0px 40px 20px;
+                                            }
+
+                                            .rules_box img {
+                                                height: 50px;
+                                                float: right;
+                                                margin: 50px 20px 50px 0px;
+                                            }
+                                        </style>
+                                        <style type="text/css">
+                                            .rules_box {
+                                                background-color: rgb(213, 213, 213);
+                                                width: 100%;
+                                                height: 150px;
+                                                margin: 0px;
+                                            }
+                                        </style>
+                                    </div>
+                                </a>
+                                <div class="button_between"></div>
+                                <a href="https://webapp-system.github.io/stockn/privacy.html">
+                                    <div class="privacy_box">
+                                        <h2>
+                                            <font size="7">プライバシーポリシー</font>
+                                        </h2>
+                                        <img src="img/pageback_g.png">
+                                        <style type="text/css">
+                                            .privacy_box h2 {
+                                                height: 50px;
+                                                vertical-align: middle;
+                                                float: left;
+                                                color: rgb(0, 0, 0);
+                                                margin: 40px 0px 40px 20px;
+                                            }
+
+                                            .privacy_box img {
+                                                height: 50px;
+                                                float: right;
+                                                margin: 50px 20px 50px 0px;
+                                            }
+                                        </style>
+                                        <style type="text/css">
+                                            .privacy_box {
+                                                background-color: rgb(213, 213, 213);
+                                                width: 100%;
+                                                height: 150px;
+                                                margin: 0px;
+                                            }
+                                        </style>
+                                    </div>
+                                </a>
+                                <div class="button_between"></div>
+                                <style type="text/css">
+                                    .use h4 {
+                                        margin: 30px 0px 0px 20px;
+                                    }
+                                </style>
+                            </div>
+                            <div class="others">
+                                <h4>
+                                    <font size="6">その他</font>
+                                </h4>
+                                <div class="button_between"></div>
+                                <a href="https://webapp-system.github.io/stockn/info.html">
+                                    <div class="info_box">
+                                        <h2>
+                                            <font size="7">お問い合わせ</font>
+                                        </h2>
+                                        <img src="img/pageback_g.png">
+                                        <style type="text/css">
+                                            .info_box h2 {
+                                                height: 50px;
+                                                vertical-align: middle;
+                                                float: left;
+                                                color: rgb(0, 0, 0);
+                                                margin: 40px 0px 40px 20px;
+                                            }
+
+                                            .info_box img {
+                                                height: 50px;
+                                                float: right;
+                                                margin: 50px 20px 50px 0px;
+                                            }
+                                        </style>
+                                        <style type="text/css">
+                                            .info_box {
+                                                background-color: rgb(213, 213, 213);
+                                                width: 100%;
+                                                height: 150px;
+                                                margin: 0px;
+                                            }
+                                        </style>
+                                    </div>
+                                </a>
+                                <div class="button_between"></div>
+                                <style type="text/css">
+                                    .others h4 {
+                                        margin: 30px 0px 0px 20px;
+                                    }
+                                </style>
+                            </div>
+                            <div class="copyright">
+                                <p>Copyright © Nagano Nishi High School , All rights reserved.</p>
+                                <style type="text/css">
+                                    .copyright p {
+                                        margin: 80px 0px 0px 0px;
+                                        text-align: center;
+                                        color: rgb(137, 137, 137);
+                                    }
+                                </style>
+                            </div>
+                        </ul>
+                    </div>
+                    <!--ここまでメニュー-->
+                </div>
+                <style type="text/css">
+                    .hamburger-menu {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .menu-btn {
+                        position: fixed;
+                        top: 10px;
+                        right: 10px;
+                        display: flex;
+                        height: 85px;
+                        width: 85px;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 90;
+                        background-color: rgb(0, 2, 101);
+                    }
+
+                    .menu-btn span,
+                    .menu-btn span:before,
+                    .menu-btn span:after {
+                        content: '';
+                        display: block;
+                        height: 7px;
+                        width: 60px;
+                        border-radius: 7px;
+                        background-color: rgb(255, 255, 255);
+                        position: absolute;
+                    }
+
+                    .menu-btn span:before {
+                        bottom: 19px;
+                    }
+
+                    .menu-btn span:after {
+                        top: 19px;
+                    }
+
+                    #menu-btn-check:checked~.menu-btn span {
+                        background-color: rgba(255, 255, 255, 0);
+                        /*メニューオープン時は真ん中の線を透明にする*/
+                    }
+
+                    #menu-btn-check:checked~.menu-btn span::before {
+                        bottom: 0;
+                        transform: rotate(45deg);
+                    }
+
+                    #menu-btn-check:checked~.menu-btn span::after {
+                        top: 0;
+                        transform: rotate(-45deg);
+                    }
+
+                    #menu-btn-check {
+                        display: none;
+                    }
+
+                    .menu-content {
+                        width: 100%;
+                        height: 100%;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        z-index: 80;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .menu-content ul {
+                        padding: 70px 10px 0;
+                        margin: 100px 0px 0px 0px;
+                        padding: 0;
+                    }
+
+                    .menu-content ul li {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .menu-content {
+                        width: 100%;
+                        height: 100%;
+                        position: fixed;
+                        top: 0;
+                        left: 100%;
+                        /*leftの値を変更してメニューを画面外へ*/
+                        z-index: 80;
+                        background-color: #ffffff;
+                        transition: all 0.5s;
+                        /*アニメーション設定*/
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    #menu-btn-check:checked~.menu-content {
+                        left: 0;
+                        /*メニューを画面内へ*/
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="header_l">
+            <style type="text/css">
+                .header_l {
+                    background-color: rgb(0, 2, 101);
+                    width: 100%;
+                    height: 5px;
+                }
+            </style>
+        </div>
+    </header>
+
+    <h1>コードを入力してください</h1>
+    <input type="number" id="codeInput" placeholder="コードを入力" inputmode="numeric" />
+    <button onclick="goToPage()">送信</button>
+
+    <script>
+        function goToPage() {
+            const code = document.getElementById("codeInput").value;
+            const pageMap = {
+                "0412": "info.html",
+                "6301": "titel.html"
+            };
+
+            if (pageMap[code]) {
+                window.location.href = pageMap[code];
+            } else {
+                alert("無効なコードです");
+            }
+        }
+    </script>
+
+    <footer>
+        <p>Copyright © Naganonishi Hight School Kazinoha Fess Broadcasting Section</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sample</title>
+  <style>
+    .content {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+  </style>
+
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="signboard-titel">
+    <img src="signboard-titel.png">
+    <style>
+      .signboard-titel img {
+        height: 100%;
+        margin: 0px 519px 0px 519px;
+        text-align: center;
+      }
+    </style>
+    <div class="time">
+      <div class="timenow">
+        <h1 id="realtime"></h1>
+        <script>
+          function twoDigit(num) {
+            let ret;
+            if (num < 10)
+              ret = "0" + num;
+            else
+              ret = num;
+            return ret;
+          }
+          function showClock() {
+            let nowTime = new Date();
+            let nowHour = twoDigit(nowTime.getHours());
+            let nowMin = twoDigit(nowTime.getMinutes());
+            let msg = nowHour + ":" + nowMin;
+            document.getElementById("realtime").innerHTML = msg;
+          }
+          setInterval('showClock()', 1000);
+        </script>
+        <style>
+          .timenow h1 {
+            color: #ffffff;
+            font-size: 52px;
+            width: 100%;
+            margin: 3px 0px 0px 0px;
+            text-align: center;
+            align-content: center;
+          }
+
+          .timenow {
+            background-color: rgb(8, 8, 8);
+            width: 190px;
+            height: 60px;
+            margin: -77px 5px 3px 5px;
+            text-align: center;
+            border-radius: 8px;
+          }
+        </style>
+      </div>
+      <style>
+        .time {
+          width: 200px;
+          background-color: #ffffff;
+          float: right;
+          margin: 0px 5px 0px 0px;
+        }
+      </style>
+    </div>
+    <style>
+      .signboard-titel {
+        width: 100%;
+        height: 80px;
+        background-color: #ffffff;
+        margin: 0px 0px 10px 0px;
+      }
+    </style>
+  </div>
+  <div class="info">
+    <div class="info_img">
+      <img src="info.png">
+    </div>
+    <div class="info_text">
+      <span>
+        <h1 id="data-sheet0">Loading…</h1>
+        <script>
+          function fetchData() {
+            fetch('https://script.google.com/macros/s/AKfycbz6z7N_Y4df-AludeYBaiZlWPFlgFHjr66uGZzNBgDufhi_zAyI7ViE3rYCtyXUC53Axw/exec')
+              .then(response => response.text())
+              .then(data => {
+                document.getElementById('data-sheet0').innerText = data;
+              })
+              .catch(error => console.error('Error fetching data from sheet 0:', error));
+          }
+
+          fetchData();
+
+          setInterval(fetchData, 60000);
+        </script>
+      </span>
+    </div>
+    <style>
+      .info_img img {
+        max-height: 50px;
+      }
+
+      .info_img {
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+        width: 140px;
+      }
+
+      .info_text {
+        background-color: black;
+        width: 1780px;
+        height: 50px;
+        float: right;
+        overflow: hidden;
+        margin: 0px;
+      }
+
+      .info_text h1 {
+        color: #ffffff;
+        font-size: 30px;
+        margin: 21px 0px 0px 0px;
+      }
+
+      .info {
+        display: flex;
+        width: 100%;
+        border: 3px solid #ffffff;
+        box-sizing: border-box;
+      }
+
+      .info_text span {
+        display: inline-block;
+        padding-left: 100%;
+        white-space: nowrap;
+        line-height: 1em;
+        animation: scrollAnime 40s linear infinite;
+      }
+
+      @keyframes scrollAnime {
+        0% {
+          transform: translateX(0)
+        }
+
+        100% {
+          transform: translateX(-100%)
+        }
+      }
+    </style>
+  </div>
+
+  <div class="titel">
+    <img src="titelline.png">
+    <style>
+      .titel {
+        width: 100%;
+        margin: 0px;
+      }
+    </style>
+  </div>
+
+  <div class="titeltext">
+    <h1>販売状況</h1>
+    <style>
+      .titeltext h1 {
+        font-size: 35px;
+        margin: -75px 0px 0px 15px;
+      }
+    </style>
+  </div>
+
+  <div class="guide">
+    <div class="name">
+      <h1>商品名</h1>
+    </div>
+    <div class="place">
+      <h1>販売場所</h1>
+    </div>
+    <div class="price">
+      <h1>価格（税込）</h1>
+    </div>
+    <div class="stoc01">
+      <h1>在庫状況</h1>
+    </div>
+    <div class="stoc02">
+      <h1>再販予定</h1>
+    </div>
+    <style>
+      .guide h1 {
+        color: #ffffff;
+        font-size: 25px;
+      }
+
+      .name {
+        margin: 0px 0px 0px 318px;
+      }
+
+      .place {
+        margin: 0px 0px 0px 480px;
+      }
+
+      .price {
+        margin: 0px 0px 0px 165px;
+      }
+
+      .stoc01 {
+        margin: 0px 0px 0px 120px;
+      }
+
+      .stoc02 {
+        margin: 0px 0px 0px 210px;
+      }
+
+      .guide {
+        display: flex;
+        margin: -50px 0px 0px 0px;
+      }
+    </style>
+  </div>
+
+  <div class="info_block">
+    <div id="div1" class="content switchA active">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet13">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbwJuabahMB9sRZrNds7RLQjxjxlKdFIRun2WcNcyBLulKA8Z0UbeVpB-kQNVzLHkA0k/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet13').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 13:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet14">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet14').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 14:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet15">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet15').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 15:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet23">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet23').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 23:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet24">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet24').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 24:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet25">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet25').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 25:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet33">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet33').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 33:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet34">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet34').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 34:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet35">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet35').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 35:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet43">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet43').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 43:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet44">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet44').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 44:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet45">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet45').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 45:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet53">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet53').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 53:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet54">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet54').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 54:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet55">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet55').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 55:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div2" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス６</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet63">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet63').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 63:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet64">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet64').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 64:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet65">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet65').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 65:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス７</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet73">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet73').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 73:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet74">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet74').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 74:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet75">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet75').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 75:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス８</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet83">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet83').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 83:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet84">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet84').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 84:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet85">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet85').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 85:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス９</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet93">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet93').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 93:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet94">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet94').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 94:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet95">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet95').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 95:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１０</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet103">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet103').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 103:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet104">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet104').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 104:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet105">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet105').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 105:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div3" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１１</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet113">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet113').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 113:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet114">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet114').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 114:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet115">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet115').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 115:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１２</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet123">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet123').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 123:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet124">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet124').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 124:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet125">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet125').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 125:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet133">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet133').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 133:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet134">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet134').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 134:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet135">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet135').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 135:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１４</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet143">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet143').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 143:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet144">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet144').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 144:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet145">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet145').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 145:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス１５</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet153">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet153').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 153:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet154">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet154').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 154:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet155">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://…')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet155').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 155:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div4" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２２</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２４</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２５</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２６</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div5" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス２９</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３０</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３１</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３２</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div6" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３６</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３７</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３８</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス３９</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４０</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div7" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４４</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４５</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４６</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス４７</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div8" class="content switchA">
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５０</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５１</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５２</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５３</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info">
+          <p>アドレス５４</p>
+        </div>
+        <div class="place_info">
+          <p>ＸＸ番教室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data + '円';
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet1">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzkiCaia5q4oLC4dDhsyV4yXKGGCGMTp8F7vTLRF8ZWIWxt84v-PFQUWSPRp-DAqS6Ovw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet1').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 1:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet2">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbzq_KkU9og4KuslwET1nR119XSWw1IIgKYG6VwHDh9g88uZrqi8GfvJJvP-YcAt5FCq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet2').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 2:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <style>
+      .name_info {
+        width: 778px;
+        height: 120px;
+        margin: 0px;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .place_info {
+        width: 350px;
+        height: 120px;
+        margin: 0px;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .price_info {
+        width: 230px;
+        height: 120px;
+        margin: 0px;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .stoc_info {
+        width: 320px;
+        height: 120px;
+        margin: 0px;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .resail_info {
+        width: 302px;
+        height: 120px;
+        margin: 0px;
+        background-color: rgb(0, 0, 0);
+      }
+
+      .textline {
+        display: flex;
+      }
+    </style>
+  </div>
+  <style>
+    .info_block p {
+      color: rgb(255, 255, 255);
+      margin: 10px 0px 10px 0px;
+      font-size: 60px;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .info_block hr {
+      margin: 0px 3px 0px 3px;
+      color: #ffffff;
+    }
+
+    .info_block {
+      background-color: black;
+      width: 100%;
+      height: 600px;
+      margin: -16px 0px 0px 0px;
+    }
+  </style>
+  </div>
+
+  <footer>
+    <div class="promotionspace">
+      <div class="content switchB active">
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-01-01T00:00:00"
+          data-hide="2025-06-30T23:59:59">調整中</div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-01T10:00:00"
+          data-hide="2025-07-16T18:00:00">サンプル2</div>
+        <style>
+          .dateTimeSwitching {
+            display: none;
+          }
+        </style>
+        <script>
+          (function () {
+            // 全ての js-date-time-switching クラスを持つ要素を取得
+            const jsDateTimeSwitching = document.querySelectorAll('.js-date-time-switching');
+
+            // 日付の妥当性を確認する関数
+            function isValidDate(date) {
+              return date instanceof Date && !isNaN(date);
+            }
+
+            // 要素ごとに表示・非表示を制御する
+            function updateDateTimeSwitchingVisibility() {
+              const now = new Date(); // 現在の日時を取得
+
+              jsDateTimeSwitching.forEach(element => {
+                // データ属性から表示/非表示の日時を取得
+                const showDateAttr = element.getAttribute('data-show');
+                const hideDateAttr = element.getAttribute('data-hide');
+
+                // 日時を変換
+                const showDate = showDateAttr ? new Date(showDateAttr) : null;
+                const hideDate = hideDateAttr ? new Date(hideDateAttr) : null;
+
+                // 日時の妥当性を確認
+                const isShowDateValid = !showDate || isValidDate(showDate);
+                const isHideDateValid = !hideDate || isValidDate(hideDate);
+
+                // 日時が無効であれば非表示に設定
+                if (!isShowDateValid || !isHideDateValid) {
+                  return; // 無効な要素はスキップ
+                }
+
+                // 現在の日時との比較
+                let shouldDisplay = true; // デフォルトでは表示
+
+                if (showDate && now < showDate) {
+                  // `data-show` が存在し、現在日時が指定日時より前なら非表示
+                  shouldDisplay = false;
+                }
+                if (hideDate && now > hideDate) {
+                  // `data-hide` が存在し、現在日時が指定日時を過ぎていれば非表示
+                  shouldDisplay = false;
+                }
+
+                // 表示・非表示を制御
+                element.style.display = shouldDisplay ? 'block' : 'none';
+              });
+            }
+
+            // 初期状態で実行
+            updateDateTimeSwitchingVisibility();
+
+            // 1秒ごとにチェックして更新
+            setInterval(updateDateTimeSwitchingVisibility, 1000);
+          })();
+        </script>
+      </div>
+      <div class="content switchB">B-2</div>
+    </div>
+    <style>
+      footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 999;
+        height: 260px;
+      }
+    </style>
+    <script>
+      function setupSwitcher(className, interval) {
+        let index = 0;
+        const divs = document.querySelectorAll(`.${className}`);
+
+        setInterval(() => {
+          divs.forEach(div => div.classList.remove('active'));
+          divs[index].classList.add('active');
+          index = (index + 1) % divs.length;
+        }, interval);
+      }
+
+      setupSwitcher('switchA', 15000); // 3秒
+      setupSwitcher('switchB', 20000); // 5秒
+    </script>
+    </div>
+  </footer>
+
+</body>
+
+</html>

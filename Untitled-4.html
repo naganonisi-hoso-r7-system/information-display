@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複数アニメーション</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            transition: background-color 0.5s;
+        }
+        .active {
+            background-color: blue;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <label for="textInput">カンマ区切りで各ボックスの切り替え文字を入力（例：A,B,あ,い,1,2,...）：</label>
+        <input type="text" id="textInput" value="A,B,あ,い,1,2,う,え,3,4,お,か,5,6,き,く,7,8,け,こ,9,10,さ,し,11,12,す,せ,13,14,そ,た,15,16" size="100">
+        <button onclick="updateTexts()">更新</button>
+    </div>
+    
+    <div class="container" id="animation-container"></div>
+
+    <script>
+        const container = document.getElementById("animation-container");
+        const numBoxes = 35;
+        let states = new Array(numBoxes).fill(false);
+        let texts = [];
+
+        function updateTexts() {
+            const inputText = document.getElementById("textInput").value;
+            const userInputs = inputText.split(",").map(t => t.trim());
+            if (userInputs.length < numBoxes * 2) {
+                alert("35個のボックスに対して、最低70個の文字を入力してください。");
+                return;
+            }
+            texts = [];
+            for (let i = 0; i < numBoxes; i++) {
+                texts.push([userInputs[i * 2], userInputs[i * 2 + 1]]);
+            }
+            // 初期表示を更新
+            boxes.forEach((box, index) => {
+                box.textContent = texts[index][0];
+            });
+        }
+
+        // 35個のボックスを作成
+        for (let i = 0; i < numBoxes; i++) {
+            let box = document.createElement("div");
+            box.classList.add("box");
+            box.textContent = "A";
+            container.appendChild(box);
+        }
+
+        const boxes = document.querySelectorAll(".box");
+
+        setInterval(() => {
+            for (let i = 0; i < numBoxes; i++) {
+                states[i] = !states[i];
+                if (texts.length === numBoxes) {
+                    boxes[i].textContent = texts[i][states[i] ? 1 : 0]; // 文字の切り替え
+                }
+                if (states[i]) {
+                    boxes[i].classList.add("active");
+                } else {
+                    boxes[i].classList.remove("active");
+                }
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

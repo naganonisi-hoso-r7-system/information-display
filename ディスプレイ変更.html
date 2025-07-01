@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>インフォメーションディスプレイforiPad</title>
+  <title>sample</title>
   <style>
     .content {
       display: none;
@@ -14,15 +14,7 @@
       display: block;
     }
   </style>
-  <meta name="description" content="梶の葉祭のスケジュールや販売している商品の在庫状況、クラスＣＭをiPadで表示するインフォメーションディスプレイ">
-  <meta property="og:site_name" content="梶の葉祭インフォメーションディスプレイforiPad">
-  <meta property="og:description" content="梶の葉祭のスケジュールや販売している商品の在庫状況、クラスＣＭをiPadで表示するインフォメーションディスプレイ">
-  <!-- <meta property="og:type" content="ページのタイプを記載"> ←後で入力-->
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link href="　" rel="stylesheet">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <link href="index.css" rel="stylesheet">
 </head>
 
@@ -32,7 +24,7 @@
     <style>
       .signboard-titel img {
         height: 100%;
-        margin: 0px 639px 0px 639px;
+        margin: 0px 519px 0px 519px;
         text-align: center;
       }
     </style>
@@ -100,100 +92,81 @@
       <img src="infotest.png">
     </div>
     <div class="info_text">
-      <div class="scroll_wrapper">
-        <div class="scrolling-text" id="scrollingText">
-          <span id="textContent">Loading…</span>
-          <span id="textContentClone">Loading…</span>
-        </div>
-      </div>
-    </div>
+      <span>
+        <h1 id="data-sheet0">Loading…</h1>
+        <script>
+          function fetchData() {
+            fetch('https://script.google.com/macros/s/AKfycbz6z7N_Y4df-AludeYBaiZlWPFlgFHjr66uGZzNBgDufhi_zAyI7ViE3rYCtyXUC53Axw/exec')
+              .then(response => response.text())
+              .then(data => {
+                document.getElementById('data-sheet0').innerText = data;
+              })
+              .catch(error => console.error('Error fetching data from sheet 0:', error));
+          }
 
-    <script>
-      function fetchData() {
-        fetch('https://script.google.com/macros/s/AKfycbz6z7N_Y4df-AludeYBaiZlWPFlgFHjr66uGZzNBgDufhi_zAyI7ViE3rYCtyXUC53Axw/exec')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('textContent').innerText = data;
-            document.getElementById('textContentClone').innerText = data;
-          })
-          .catch(error => console.error('Error fetching data from sheet 0:', error));
+          fetchData();
+
+          setInterval(fetchData, 60000);
+        </script>
+      </span>
+    </div>
+    <style>
+      .info_img img {
+        max-height: 50px;
       }
 
-      fetchData();
-      setInterval(fetchData, 60000);
-    </script>
+      .info_img {
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+        width: 140px;
+      }
 
-    <style>
+      .info_text {
+        background-color: black;
+        width: 1780px;
+        height: 50px;
+        float: right;
+        overflow: hidden;
+        margin: 0px;
+      }
+
+      .info_text h1 {
+        color: #ffffff;
+        font-size: 30px;
+        margin: 21px 0px 0px 0px;
+      }
+
       .info {
         display: flex;
         width: 100%;
         border: 3px solid #ffffff;
         box-sizing: border-box;
-        margin-bottom: 10px;
       }
 
-      .info_img {
-        background-color: white;
-        height: 50px;
-        width: 140px;
-      }
-
-      .info_img img {
-        max-height: 50px;
-      }
-
-      .info_text {
-        background-color: black;
-        height: 50px;
-        flex-grow: 1;
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-
-      .scroll_wrapper {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .scrolling-text {
-        display: flex;
+      .info_text span {
+        display: inline-block;
+        padding-left: 100%;
         white-space: nowrap;
-        will-change: transform;
-        animation: scrollLoop 20s linear infinite;
+        line-height: 1em;
+        animation: scrollAnime 40s linear infinite;
       }
 
-      .scrolling-text span {
-        color: white;
-        font-size: 30px;
-        padding-right: 100px;
-        /* 間隔を空けると自然 */
-      }
-
-      @keyframes scrollLoop {
+      @keyframes scrollAnime {
         0% {
-          transform: translateX(0%);
+          transform: translateX(0)
         }
 
         100% {
-          transform: translateX(-50%);
+          transform: translateX(-100%)
         }
       }
     </style>
   </div>
 
-
   <div class="titel">
-    <img src="titelline_foriPad.png">
+    <img src="titelline.png">
     <style>
       .titel {
-        width: 100%;
-        margin: 0px;
-      }
-
-      .titel img {
         width: 100%;
         margin: 0px;
       }
@@ -233,11 +206,11 @@
       }
 
       .name {
-        margin: 0px 0px 0px 415px;
+        margin: 0px 0px 0px 298px;
       }
 
       .place {
-        margin: 0px 0px 0px 512px;
+        margin: 0px 0px 0px 423px;
       }
 
       .price {
@@ -383,8 +356,8 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info_for50">
-          <p>コロッケバーガー＆ポテト</p>
+        <div class="name_info">
+          <p>チーズバーガー</p>
         </div>
         <div class="place_info">
           <p>３年２組</p>
@@ -445,7 +418,7 @@
       <hr>
       <div class="textline">
         <div class="name_info">
-          <p>ハンバーガー＆ポテト</p>
+          <p>ハンバーガー</p>
         </div>
         <div class="place_info">
           <p>３年２組</p>
@@ -503,191 +476,8 @@
           </script>
         </div>
       </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>サンドイッチ（甘ロール入り）</p>
-        </div>
-        <div class="place_info">
-          <p>３年２組</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet353">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxm-Iwv3r8P8cgE8h9axCy2Mh6RHvC_5_-4x_eIIpOREURILaNMQablsZrKAscBqGQx5g/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet353').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 353:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet354">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwpd0sQq4mfNJHocXc2JiSdHJQG-Ucjr9ORNUU5xbeJKyGvjih6k2TUUih7x26ulRRbqg/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet354').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 354:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet355">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyj27a3Zw_izN-fcw5qaDRPrjIxJGziVqitiIc-SND33JGmkhQYeMbVt1T9MIWkA2f1ng/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet355').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 355:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>サンドイッチ（３種）</p>
-        </div>
-        <div class="place_info">
-          <p>３年２組</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet363">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzWw_CWV1wgQEHotsNWSrI_kTB_GCpz2nRCiJIATSSstOW80tV9Yq-0BSaFyuLZQN0LwA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet363').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 363:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet364">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwpgH2L08EIGCLFsUnPw4O0uR2UE5T5k-APOr-nCryoxubh7jaKGDNN1rUBfqra903F/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet364').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 364:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet365">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxav3Rz1-NKfoApvbYQcSA7iC4zkcE9auym2iWMQX5k6ausNeDD4zkPDLmnAZqPHhk/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet365').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 365:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
     </div>
     <div id="div2" class="content switchA">
-      <div class="textline">
-        <div class="name_info">
-          <p>サンドイッチ（４種）</p>
-        </div>
-        <div class="place_info">
-          <p>３年２組</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet373">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwtRuLUP26hTxaN4fOnAeE-LcROrwMTEW_uzEertXI9V4OwQZT--j5ZBu5D8fTS1awIDQ/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet373').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 373:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet374">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycby82n_3rq9dZVttFlzHvAZPRYV0q0ZpCCwdcf4_D0JIfjK9vqPg7vKZ__RzrwUwEiO6Cw/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet374').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 374:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet375">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwDSme1X5wVMVkX7gMGcjHu0QpVXZ11HLSvFksaxD-elXcSDBW_dU2DIx87iMmd4a9e/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet375').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 375:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
       <div class="textline">
         <div class="name_info">
           <p>フルーツ飴（いちご）</p>
@@ -748,7 +538,6 @@
           </script>
         </div>
       </div>
-      <hr>
       <div class="textline">
         <div class="name_info">
           <p>フルーツ飴（ぶどう）</p>
@@ -956,6 +745,9 @@
           </script>
 
         </div>
+      </div>
+      <hr>
+      <div class="textline">
         <div class="stoc_info">
           <p id="data-sheet94">Loading…</p>
           <script>
@@ -990,12 +782,8 @@
             setInterval(fetchData, 60000);
           </script>
         </div>
-      </div>
-    </div>
-    <div id="div3" class="content switchA">
-      <div class="textline">
         <div class="name_info_for50">
-          <p>チーズボール（クリームチーズ）</p>
+          <p>チーズボール<br>（クリームチーズ）</p>
         </div>
         <div class="place_info">
           <p>３年４組</p>
@@ -1053,9 +841,71 @@
           </script>
         </div>
       </div>
-      <hr>
+    </div>
+    <div id="div3" class="content switchA">
       <div class="textline">
-        <div class="name_info_for45">
+        <div class="name_info_for50">
+          <p>チーズボール<br>（スイートポテト）</p>
+        </div>
+        <div class="place_info">
+          <p>３年４組</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet113">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbyOZh4177wTrtKRpOcRKxy7ImVosKULZhtESNWttsQbv7X4OkpLPgCzH1spZMPQGdLq/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet113').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 113:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet114">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbw-klEpdO7TU5FVGzQy-j0mpyY1ICpfg4dpuVbXE8jfFoWpJ4MDyym3Tgm-KhNL3Pi3jw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet114').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 114:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet115">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbxoHnkWpP1jBm9l0oCzlO4NEVhjKx85OSsjPOhO8y1KiXTsW7OLUq1NaBMh_3sn7AJE/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet115').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 115:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="div4" class="content switchA">
+            <div class="textline">
+        <div class="name_info_for40">
           <p>ディッピンドッツアイスクリーム<br>（ストロベリーチーズケーキ）</p>
         </div>
         <div class="place_info">
@@ -1116,7 +966,7 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info_for45">
+        <div class="name_info_for40">
           <p>ディッピンドッツアイスクリーム<br>（レインボー）</p>
         </div>
         <div class="place_info">
@@ -1177,7 +1027,7 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info_for45">
+        <div class="name_info_for40">
           <p>ディッピンドッツアイスクリーム<br>（ハニーコットンキャンディ）</p>
         </div>
         <div class="place_info">
@@ -1238,7 +1088,7 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info_for45">
+        <div class="name_info_for40">
           <p>ディッピンドッツアイスクリーム<br>（クッキー&クリーム）</p>
         </div>
         <div class="place_info">
@@ -1297,7 +1147,6 @@
           </script>
         </div>
       </div>
-      <hr>
       <div class="textline">
         <div class="name_info">
           <p>ピザ（マルゲリータ）</p>
@@ -1358,8 +1207,7 @@
           </script>
         </div>
       </div>
-    </div>
-    <div id="div4" class="content switchA">
+      <hr>
       <div class="textline">
         <div class="name_info">
           <p>ピザ（照り焼きチキン）</p>
@@ -1603,7 +1451,8 @@
           </script>
         </div>
       </div>
-      <hr>
+    </div>
+    <div id="div5" class="content switchA">
       <div class="textline">
         <div class="name_info">
           <p>ケバブ</p>
@@ -1725,8 +1574,7 @@
           </script>
         </div>
       </div>
-    </div>
-    <div id="div5" class="content switchA">
+      <hr>
       <div class="textline">
         <div class="name_info">
           <p>きゅうりの一本漬け</p>
@@ -1789,8 +1637,8 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info">
-          <p>ドーナツ（ドーナツホップ）</p>
+        <div class="name_info_for50">
+          <p>ドーナツ<br>（ドーナツホップ）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
@@ -1850,8 +1698,8 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info_for45">
-          <p>ドーナツ<br>（ポンデリング×オールドファッション）</p>
+        <div class="name_info_for40">
+          <p>ドーナツ（ポンデリング×オールドファッション）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
@@ -1909,10 +1757,11 @@
           </script>
         </div>
       </div>
-      <hr>
+    </div>
+    <div id="div6" class="content switchA">
       <div class="textline">
-        <div class="name_info_for45">
-          <p>ドーナツ<br>（ポンデリング×エンゼルフレンチ）</p>
+        <div class="name_info_for40">
+          <p>ドーナツ（ポンデリング×エンゼルフレンチ）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
@@ -2033,8 +1882,8 @@
       </div>
       <hr>
       <div class="textline">
-        <div class="name_info">
-          <p>タピオカ（ミルクティー）</p>
+        <div class="name_info_for50">
+          <p>タピオカ<br>（ミルクティー）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
@@ -2092,8 +1941,7 @@
           </script>
         </div>
       </div>
-    </div>
-    <div id="div6" class="content switchA">
+      <hr>
       <div class="textline">
         <div class="name_info">
           <p>タピオカ（抹茶）</p>
@@ -2215,7 +2063,8 @@
           </script>
         </div>
       </div>
-      <hr>
+    </div>
+    <div id="div7" class="content switchA">
       <div class="textline">
         <div class="name_info">
           <p>メロンパン（プレーン）</p>
@@ -2459,86 +2308,24 @@
           </script>
         </div>
       </div>
-    </div>
-    <div id="div7" class="content switchA">
-      <div class="textline">
-        <div class="name_info">
-          <p>おにぎり（さけ）</p>
-        </div>
-        <div class="place_info">
-          <p>理科講義室</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet393">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyqW7StlGypWMowVN_igntycKNBfmU7Y3kUf3ylwo9RuD49KSSasD2r3hdRz615gsMi/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet393').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 393:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet394">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyKRmGBJ8fUbVySZQdWOyJfFI84fMle5wRjdJ9UXsyt8MN3IjQ5ksWTFHs9MOlNQtTW9w/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet394').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 394:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet395">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyNWfaKJYNw2PQD_TX6G9poD-5gmLNA7-BPHHE5bNLUN-dMwgY2TqbHM0tnjVpYXywN/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet395').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 395:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
       <hr>
       <div class="textline">
-        <div class="name_info">
-          <p>おにぎり（たらこ）</p>
+        <div class="name_info_for50">
+          <p>おにぎり＆鶏皮セット<br>（さけ）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet403">Loading…</p>
+          <p id="data-sheet353">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwCGNs7hpf5chItaXTPCBW124RJVdaMgsDA_7Opbx7XwyHzdTpu83BtHUybFs-H5agWeg/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxm-Iwv3r8P8cgE8h9axCy2Mh6RHvC_5_-4x_eIIpOREURILaNMQablsZrKAscBqGQx5g/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet403').innerText = data;
+                  document.getElementById('data-sheet353').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 403:', error));
+                .catch(error => console.error('Error fetching data from sheet 353:', error));
             }
 
             fetchData();
@@ -2548,15 +2335,15 @@
 
         </div>
         <div class="stoc_info">
-          <p id="data-sheet404">Loading…</p>
+          <p id="data-sheet354">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbydyV032ov58x730rEQvm7wOFQ9KNzDs0kdx8zVHMsjOdU6VqDbgxqkfDwA9Ah_GiHS/exec')
+              fetch('https://script.google.com/macros/s/AKfycbwpd0sQq4mfNJHocXc2JiSdHJQG-Ucjr9ORNUU5xbeJKyGvjih6k2TUUih7x26ulRRbqg/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet404').innerText = data;
+                  document.getElementById('data-sheet354').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 404:', error));
+                .catch(error => console.error('Error fetching data from sheet 354:', error));
             }
 
             fetchData();
@@ -2565,259 +2352,15 @@
           </script>
         </div>
         <div class="resail_info">
-          <p id="data-sheet405">Loading…</p>
+          <p id="data-sheet355">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxu99Z-ftfY-2bOl5tccVbdNiGK8aX0qFn8seNbCejqadnrKp38L--bpFR25wb2JDU1/exec')
+              fetch('https://script.google.com/macros/s/AKfycbyj27a3Zw_izN-fcw5qaDRPrjIxJGziVqitiIc-SND33JGmkhQYeMbVt1T9MIWkA2f1ng/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet405').innerText = data;
+                  document.getElementById('data-sheet355').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 405:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>おにぎり（ツナ）</p>
-        </div>
-        <div class="place_info">
-          <p>理科講義室</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet413">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyfG85Mj-FvLariD5JdXHSqTzUejWLvcv58K20c1wMk5eTmaZ3E7Y8TGI8qi3Cf3G0NOQ/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet413').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 413:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet414">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxLNeqC_1Jwl05sozIF1Od4_baZcxiXrZ6GSZRt85x6-KCwqTJ9yQLHKCkNpGpkjSigRQ/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet414').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 414:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet415">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxlFKrmhmWNQi6qT6cMHbuK5_WmgO0qN9pOUTStyrcnNTvNd4912XBUR5XVsES6ZYFO/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet415').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 415:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>パン（牛乳パン）</p>
-        </div>
-        <div class="place_info">
-          <p>理科講義室</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet433">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxIGOKbDdjQopAqOcRSJyE3_YSJYGhi-3uXfcgLtH8sVrUFgSj8cmkjvlhzNtjFdFt8Cw/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet433').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 433:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet434">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxoEA4UFIvtrQkPHZic2bXttyhu_676yNfrfYUWhMe6wh8Nu2bn23p_nJz8QXl8Wc2ayA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet434').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 434:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet435">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyzPa_XhBp9vhOj8V2z7_Y3rMNrXfF2WrBKdwNUEQ2cr6pbo7nM0BPt7qTtj5Fsm_Gj/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet435').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 435:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>パン（肉球パン）</p>
-        </div>
-        <div class="place_info">
-          <p>理科講義室</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet443">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxODYaWtiWXukSIGyK2AOJHSjCc8E-OqCzHPBFillQYGcdTNRcBuCzrX7utkn7DjYbP3g/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet443').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 443:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet444">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbx1BJat5xkHJvAVDXrwPHuVFrR_CoSfPRj1lcBu4fQ9RlEcEjAgoGOn9IrzKjpjAjIQ/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet444').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 444:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet445">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbya3TeyIgWjr4u_TT_CKuMbpAJ1I0bO7V9xP7HkTkVaAufKSJAywKl94ZXNGQhYLF8/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet445').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 445:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>パン（信州牛カレーパン）</p>
-        </div>
-        <div class="place_info">
-          <p>理科講義室</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet453">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzZyAeL--qAl2csCWUfnkUUKmQjbroC0miCpbx52f11IhLmz6CQXB0cXgBdnu2KGebwzg/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet453').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 453:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet454">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxGyEx0krMTF47F0NPgVEmzdaLqIW4oHauYsL7uVplgKNRxXc_dTic3usW0XhJMz9wa/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet454').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 454:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet455">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyMKaqSOGLkfQCxSFdSen1JZoxdsXbqSHtrh97_-SZ7g0NP5i__0TE1bcpLhWjE3w8p/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet455').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 455:', error));
+                .catch(error => console.error('Error fetching data from sheet 355:', error));
             }
 
             fetchData();
@@ -2830,21 +2373,21 @@
     <div id="div8" class="content switchA">
       <div class="textline">
         <div class="name_info_for50">
-          <p>パン（和風ガーリックフランス）</p>
+          <p>おにぎり＆鶏皮セット<br>（たらこ）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet463">Loading…</p>
+          <p id="data-sheet363">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwFSx12zMHRceIWsZGRw5-0q5FLAFCHN9QlVR6tWiotH0cMwPw797jcC1pLKj_pvE4tvg/exec')
+              fetch('https://script.google.com/macros/s/AKfycbzWw_CWV1wgQEHotsNWSrI_kTB_GCpz2nRCiJIATSSstOW80tV9Yq-0BSaFyuLZQN0LwA/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet463').innerText = data;
+                  document.getElementById('data-sheet363').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 463:', error));
+                .catch(error => console.error('Error fetching data from sheet 363:', error));
             }
 
             fetchData();
@@ -2854,15 +2397,15 @@
 
         </div>
         <div class="stoc_info">
-          <p id="data-sheet464">Loading…</p>
+          <p id="data-sheet364">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbw4FsBy_L0fPqerssI5NdqdSH_vvStxOxp48-CQpRozSkMxQKAQMUQybjejj_x99QvGSQ/exec')
+              fetch('https://script.google.com/macros/s/AKfycbwpgH2L08EIGCLFsUnPw4O0uR2UE5T5k-APOr-nCryoxubh7jaKGDNN1rUBfqra903F/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet464').innerText = data;
+                  document.getElementById('data-sheet364').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 464:', error));
+                .catch(error => console.error('Error fetching data from sheet 364:', error));
             }
 
             fetchData();
@@ -2871,15 +2414,76 @@
           </script>
         </div>
         <div class="resail_info">
-          <p id="data-sheet465">Loading…</p>
+          <p id="data-sheet365">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzv81KmGtszy5qs61z3DbaCmggpp3hL-bch8_9l3UoWGzBEM79ShQx_9qpwSgi43XolpQ/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxav3Rz1-NKfoApvbYQcSA7iC4zkcE9auym2iWMQX5k6ausNeDD4zkPDLmnAZqPHhk/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet465').innerText = data;
+                  document.getElementById('data-sheet365').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 465:', error));
+                .catch(error => console.error('Error fetching data from sheet 365:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info_for50">
+          <p>おにぎり＆鶏皮セット<br>（ツナ）</p>
+        </div>
+        <div class="place_info">
+          <p>理科講義室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet373">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbwtRuLUP26hTxaN4fOnAeE-LcROrwMTEW_uzEertXI9V4OwQZT--j5ZBu5D8fTS1awIDQ/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet373').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 373:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet374">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycby82n_3rq9dZVttFlzHvAZPRYV0q0ZpCCwdcf4_D0JIfjK9vqPg7vKZ__RzrwUwEiO6Cw/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet374').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 374:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet375">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbwDSme1X5wVMVkX7gMGcjHu0QpVXZ11HLSvFksaxD-elXcSDBW_dU2DIx87iMmd4a9e/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet375').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 375:', error));
             }
 
             fetchData();
@@ -2891,7 +2495,7 @@
       <hr>
       <div class="textline">
         <div class="name_info">
-          <p>鶏皮せんべい</p>
+          <p>おにぎり（さけ）</p>
         </div>
         <div class="place_info">
           <p>理科講義室</p>
@@ -2952,21 +2556,21 @@
       <hr>
       <div class="textline">
         <div class="name_info">
-          <p>ミサンガ</p>
+          <p>おにぎり（たらこ）</p>
         </div>
-        <div class="place_info_forkazinoha">
-          <p>梶の葉ルーム</p>
+        <div class="place_info">
+          <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet473">Loading…</p>
+          <p id="data-sheet393">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzyv72Tp1hwOJceFQbIfk5XSdhAujU7covH4lYSu7Zw9axNywBHO4hcHXJw-jo5519L/exec')
+              fetch('https://script.google.com/macros/s/AKfycbyqW7StlGypWMowVN_igntycKNBfmU7Y3kUf3ylwo9RuD49KSSasD2r3hdRz615gsMi/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet473').innerText = data;
+                  document.getElementById('data-sheet393').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 473:', error));
+                .catch(error => console.error('Error fetching data from sheet 393:', error));
             }
 
             fetchData();
@@ -2976,15 +2580,15 @@
 
         </div>
         <div class="stoc_info">
-          <p id="data-sheet474">Loading…</p>
+          <p id="data-sheet394">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbw5c8kaXVhXCRl17-ljqS3mVnxxZS7DD-04OTlJfoV9PsQocEy2o_AWafzNccJw0KrG/exec')
+              fetch('https://script.google.com/macros/s/AKfycbyKRmGBJ8fUbVySZQdWOyJfFI84fMle5wRjdJ9UXsyt8MN3IjQ5ksWTFHs9MOlNQtTW9w/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet474').innerText = data;
+                  document.getElementById('data-sheet394').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 474:', error));
+                .catch(error => console.error('Error fetching data from sheet 394:', error));
             }
 
             fetchData();
@@ -2993,15 +2597,15 @@
           </script>
         </div>
         <div class="resail_info">
-          <p id="data-sheet475">Loading…</p>
+          <p id="data-sheet395">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxrDtBrsVMRJHrvt-doMAnvLl7Fp2B_Tp3wYDn_Lg6OyqDFXLDqxX6O1s6P_Xhlvo3xig/exec')
+              fetch('https://script.google.com/macros/s/AKfycbyNWfaKJYNw2PQD_TX6G9poD-5gmLNA7-BPHHE5bNLUN-dMwgY2TqbHM0tnjVpYXywN/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet475').innerText = data;
+                  document.getElementById('data-sheet395').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 475:', error));
+                .catch(error => console.error('Error fetching data from sheet 395:', error));
             }
 
             fetchData();
@@ -3013,21 +2617,21 @@
       <hr>
       <div class="textline">
         <div class="name_info">
-          <p>ビーズストラップ</p>
+          <p>おにぎり（ツナ）</p>
         </div>
-        <div class="place_info_forkazinoha">
-          <p>梶の葉ルーム</p>
+        <div class="place_info">
+          <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet483">Loading…</p>
+          <p id="data-sheet403">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzmmrsopk_vybiWsUWm0KwKg3_anJyfeYnmrT0I3dCoZpH8BRuW4EPqmXAuCZ0aTRAZ/exec')
+              fetch('https://script.google.com/macros/s/AKfycbwCGNs7hpf5chItaXTPCBW124RJVdaMgsDA_7Opbx7XwyHzdTpu83BtHUybFs-H5agWeg/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet483').innerText = data;
+                  document.getElementById('data-sheet403').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 483:', error));
+                .catch(error => console.error('Error fetching data from sheet 403:', error));
             }
 
             fetchData();
@@ -3037,15 +2641,15 @@
 
         </div>
         <div class="stoc_info">
-          <p id="data-sheet484">Loading…</p>
+          <p id="data-sheet404">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbx7ANAbYfvFlPEdhIcSTX6yDWR0Zn8jNob0pHaSSfh5nmM1R5QVdsvBktxJHs7YbUI5gQ/exec')
+              fetch('https://script.google.com/macros/s/AKfycbydyV032ov58x730rEQvm7wOFQ9KNzDs0kdx8zVHMsjOdU6VqDbgxqkfDwA9Ah_GiHS/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet484').innerText = data;
+                  document.getElementById('data-sheet404').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 484:', error));
+                .catch(error => console.error('Error fetching data from sheet 404:', error));
             }
 
             fetchData();
@@ -3054,137 +2658,15 @@
           </script>
         </div>
         <div class="resail_info">
-          <p id="data-sheet485">Loading…</p>
+          <p id="data-sheet405">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxRmi0La-5NuIvdD1baotFhS8DAVtb3GsQ4umSV5LsD-0lwqFrxVQXpTaFUHoWDQC9v/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxu99Z-ftfY-2bOl5tccVbdNiGK8aX0qFn8seNbCejqadnrKp38L--bpFR25wb2JDU1/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet485').innerText = data;
+                  document.getElementById('data-sheet405').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 485:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>キャンディパック</p>
-        </div>
-        <div class="place_info_forkazinoha">
-          <p>梶の葉ルーム</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet493">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyQu3LOckyFW2gHT2Fwqx6P3yRDRmiV7jLtSDgkJwhEx3xPtBmJt7tL8grT72Ow1oz6/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet493').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 493:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet494">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxkaPIvB3LiFMITVi1by92v7pIfL6ZDQp9S-60nlrAo53Kt3zJSDE7vNhc7W39KbfA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet494').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 494:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet495">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyK9H3Yiu2qo7py53Yu65yQM6qUTWuyQI_QYtfxzMbfWricgpAv9MLtcbeVdxkq_4oQXA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet495').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 495:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>リボンゴム</p>
-        </div>
-        <div class="place_info_forkazinoha">
-          <p>梶の葉ルーム</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet503">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwXdCHfzYTtnDU95oI1jck2p3qBor3UpfCqsXScLNHhrFzLI0P37woiIXZ-nT9FyrzPlA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet503').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 503:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet504">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyK7wB-U83EOfJHWMhLbyeGuXfulQtVgoKeTAAINRo1412eCS8XnYkjFpSxhsFCseERlw/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet504').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 504:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet505">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbySTSLBV5kdPztOhQfbE7aH3To52ixZVanZZwhPvlCOF6ZEI2mOV_1OXRzFah8a8dWG/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet505').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 505:', error));
+                .catch(error => console.error('Error fetching data from sheet 405:', error));
             }
 
             fetchData();
@@ -3197,82 +2679,21 @@
     <div id="div9" class="content switchA">
       <div class="textline">
         <div class="name_info">
-          <p>リボンストラップ</p>
-        </div>
-        <div class="place_info_forkazinoha">
-          <p>梶の葉ルーム</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet513">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyGZWsgZnfxpvCHcY2k1Ywrew0R8ZJgiM6PKo2PrCay6cH0CD3T-8pXmLDEFWB4myOD/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet513').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 513:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet514">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxzvSGyADjJ7lLoGgcvALDh45ejkpJMznYa7poBkf8SggsFTQCxZj6MXDImYABtezJHzQ/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet514').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 514:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet515">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbycYz3kihuU9FEcPFIkGtpjySp-gJ-AfUfYlYcf7QtCiq1G2FemBMurDrMi0NIAsz_Cpw/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet515').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 515:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info_for50">
-          <p>フェアトレードクッキー（くるみ）</p>
+          <p>パン（牛乳パン）</p>
         </div>
         <div class="place_info">
-          <p>月面３・４</p>
+          <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet523">Loading…</p>
+          <p id="data-sheet413">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwPHb6qq0vaYB9bnWwU61Xgmx3yQN114u8ceOIeZnFV4RubopkeKT6fOE4tdoBu-Tc_/exec')
+              fetch('https://script.google.com/macros/s/AKfycbyfG85Mj-FvLariD5JdXHSqTzUejWLvcv58K20c1wMk5eTmaZ3E7Y8TGI8qi3Cf3G0NOQ/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet523').innerText = data;
+                  document.getElementById('data-sheet413').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 523:', error));
+                .catch(error => console.error('Error fetching data from sheet 413:', error));
             }
 
             fetchData();
@@ -3282,15 +2703,15 @@
 
         </div>
         <div class="stoc_info">
-          <p id="data-sheet524">Loading…</p>
+          <p id="data-sheet414">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzqfZxkB2GnWNQYHyWq_hv7hZqQPrdPX1ag0D7YZKowHIUyDZVljsCCslpvE0BydObDMw/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxLNeqC_1Jwl05sozIF1Od4_baZcxiXrZ6GSZRt85x6-KCwqTJ9yQLHKCkNpGpkjSigRQ/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet524').innerText = data;
+                  document.getElementById('data-sheet414').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 524:', error));
+                .catch(error => console.error('Error fetching data from sheet 414:', error));
             }
 
             fetchData();
@@ -3299,75 +2720,15 @@
           </script>
         </div>
         <div class="resail_info">
-          <p id="data-sheet525">Loading…</p>
+          <p id="data-sheet415">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwBu6FxbqNpVIlN7T4qxeKedJIRepuDu1yZGONNFhmTfdjmKTfYsclrun2slnXpaDrLCQ/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxlFKrmhmWNQi6qT6cMHbuK5_WmgO0qN9pOUTStyrcnNTvNd4912XBUR5XVsES6ZYFO/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet525').innerText = data;
+                  document.getElementById('data-sheet415').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 525:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info_for45">
-          <p>フェアトレードクッキー<br>（レモンシュガー）</p>
-        </div>
-        <div class="place_info">
-          <p>月面３・４</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet113">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbyOZh4177wTrtKRpOcRKxy7ImVosKULZhtESNWttsQbv7X4OkpLPgCzH1spZMPQGdLq/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet113').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 113:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet114">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbw-klEpdO7TU5FVGzQy-j0mpyY1ICpfg4dpuVbXE8jfFoWpJ4MDyym3Tgm-KhNL3Pi3jw/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet114').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 114:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet115">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxoHnkWpP1jBm9l0oCzlO4NEVhjKx85OSsjPOhO8y1KiXTsW7OLUq1NaBMh_3sn7AJE/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet115').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 115:', error));
+                .catch(error => console.error('Error fetching data from sheet 415:', error));
             }
 
             fetchData();
@@ -3379,104 +2740,10 @@
       <hr>
       <div class="textline">
         <div class="name_info">
-          <p>べジート</p>
+          <p>パン（肉球パン）</p>
         </div>
         <div class="place_info">
-          <p>月面３・４</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet901">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwwV4ep5ZP6nNj0-LERt692ASTyUEWD-I5wLPH7W1TDAse2iYWAJnTkyJAgaMKORo_T/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet901').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 901:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p> </p>
-        </div>
-        <div class="resail_info">
-          <p> </p>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>ソルガムドーナツ（プレーン）</p>
-        </div>
-        <div class="place_info">
-          <p>月面３・４</p>
-        </div>
-        <div class="price_info">
-          <p id="data-sheet533">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxqSgszjxZI3tBeiE73xqkUmutJlcH-eO6xf2EODKOHc-aPqBtVPTQPMG1wWcq_ZpFarA/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet533').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 533:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-
-        </div>
-        <div class="stoc_info">
-          <p id="data-sheet534">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbzPvL9JOCU9q0TrrWsCQsuSL428TWT7TsRA67I0D1B1y9yufrBTZa7EQirD3tFGZQilkg/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet534').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 534:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-        <div class="resail_info">
-          <p id="data-sheet535">Loading…</p>
-          <script>
-            function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbwrPbBCIqH0wsMzQYZWKRhaCVgWZT_DLA91NM-H7Ml3dD8_EHz3z5SoC6cWPj3Yy1xr9g/exec')
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('data-sheet535').innerText = data;
-                })
-                .catch(error => console.error('Error fetching data from sheet 535:', error));
-            }
-
-            fetchData();
-
-            setInterval(fetchData, 60000);
-          </script>
-        </div>
-      </div>
-      <hr>
-      <div class="textline">
-        <div class="name_info">
-          <p>ソルガムドーナツ（メープル）</p>
-        </div>
-        <div class="place_info">
-          <p>月面３・４</p>
+          <p>理科講義室</p>
         </div>
         <div class="price_info">
           <p id="data-sheet423">Loading…</p>
@@ -3531,43 +2798,24 @@
           </script>
         </div>
       </div>
-    </div>
-    <div id="div10" class="content switchA">
-      <div class="textline">
-        <div class="name_info">
-          <p>竹紙バック</p>
-        </div>
-        <div class="place_info">
-          <p>月面３・４</p>
-        </div>
-        <div class="price_info">
-          <p>250円</p>
-        </div>
-        <div class="stoc_info">
-          <p> </p>
-        </div>
-        <div class="resail_info">
-          <p> </p>
-        </div>
-      </div>
       <hr>
       <div class="textline">
-        <div class="name_info">
-          <p>竹紙ノート</p>
+        <div class="name_info_for50">
+          <p>パン<br>（信州牛カレーパン）</p>
         </div>
         <div class="place_info">
-          <p>月面３・４</p>
+          <p>理科講義室</p>
         </div>
         <div class="price_info">
-          <p id="data-sheet993">Loading…</p>
+          <p id="data-sheet433">Loading…</p>
           <script>
             function fetchData() {
-              fetch('https://script.google.com/macros/s/AKfycbxkXTqkwURe52Pww__0ozSAr7FAMoVKxeUJJOwPPB7Mxplesy8mM-CmNusZMmWL0yM_LA/exec')
+              fetch('https://script.google.com/macros/s/AKfycbxIGOKbDdjQopAqOcRSJyE3_YSJYGhi-3uXfcgLtH8sVrUFgSj8cmkjvlhzNtjFdFt8Cw/exec')
                 .then(response => response.text())
                 .then(data => {
-                  document.getElementById('data-sheet993').innerText = data;
+                  document.getElementById('data-sheet433').innerText = data;
                 })
-                .catch(error => console.error('Error fetching data from sheet 993:', error));
+                .catch(error => console.error('Error fetching data from sheet 433:', error));
             }
 
             fetchData();
@@ -3577,10 +2825,99 @@
 
         </div>
         <div class="stoc_info">
-          <p> </p>
+          <p id="data-sheet434">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbxoEA4UFIvtrQkPHZic2bXttyhu_676yNfrfYUWhMe6wh8Nu2bn23p_nJz8QXl8Wc2ayA/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet434').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 434:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
         </div>
         <div class="resail_info">
-          <p> </p>
+          <p id="data-sheet435">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbyzPa_XhBp9vhOj8V2z7_Y3rMNrXfF2WrBKdwNUEQ2cr6pbo7nM0BPt7qTtj5Fsm_Gj/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet435').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 435:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+      </div>
+      <hr>
+      <div class="textline">
+        <div class="name_info_for50">
+          <p>パン<br>（和風ガーリックフランス）</p>
+        </div>
+        <div class="place_info">
+          <p>理科講義室</p>
+        </div>
+        <div class="price_info">
+          <p id="data-sheet443">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbxODYaWtiWXukSIGyK2AOJHSjCc8E-OqCzHPBFillQYGcdTNRcBuCzrX7utkn7DjYbP3g/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet443').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 443:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+
+        </div>
+        <div class="stoc_info">
+          <p id="data-sheet444">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbx1BJat5xkHJvAVDXrwPHuVFrR_CoSfPRj1lcBu4fQ9RlEcEjAgoGOn9IrzKjpjAjIQ/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet444').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 444:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
+        </div>
+        <div class="resail_info">
+          <p id="data-sheet445">Loading…</p>
+          <script>
+            function fetchData() {
+              fetch('https://script.google.com/macros/s/AKfycbya3TeyIgWjr4u_TT_CKuMbpAJ1I0bO7V9xP7HkTkVaAufKSJAywKl94ZXNGQhYLF8/exec')
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById('data-sheet445').innerText = data;
+                })
+                .catch(error => console.error('Error fetching data from sheet 445:', error));
+            }
+
+            fetchData();
+
+            setInterval(fetchData, 60000);
+          </script>
         </div>
       </div>
       <hr>
@@ -3588,7 +2925,7 @@
 
     <style>
       .name_info {
-        width: 878px;
+        width: 698px;
         height: 120px;
         margin: 0px;
         background-color: rgb(0, 0, 0);
@@ -3649,7 +2986,7 @@
     }
 
     .name_info_for50 {
-      width: 878px;
+      width: 698px;
       height: 120px;
       background-color: black;
       overflow: hidden;
@@ -3668,18 +3005,18 @@
       line-height: 1.0;
     }
 
-    .name_info_for45 {
-      width: 878px;
-      height: 84px;
+    .name_info_for40 {
+      width: 698px;
+      height: 120px;
       background-color: black;
       overflow: hidden;
       display: flex;
       align-items: center;
     }
 
-    .name_info_for45 p {
-      margin: 7px 0px 0px 0px;
-      font-size: 45px;
+    .name_info_for40 p {
+      margin: 0;
+      font-size: 40px;
       /* 初期サイズ */
       color: white;
       word-break: break-word;
@@ -3687,284 +3024,2143 @@
       width: 100%;
       line-height: 1.0;
     }
-
-    .place_info_forkazinoha {
-      width: 350px;
-      height: 84px;
-      margin: 0px;
-      background-color: rgb(0, 0, 0);
-    }
-
-    .place_info_forkazinoha p {
-      color: rgb(255, 255, 255);
-      margin: 0px;
-      font-size: 50px;
-      text-align: center;
-      line-height: 100px;
-    }
   </style>
   </div>
 
   <footer>
-    <div class="footerbody">
-      <div class="Lfooter">
-        <div class="movie" style="width: 100%; aspect-ratio: 16 / 9;">
-          <iframe width="100%" height="100%"
-            src="https://www.youtube.com/embed/IRKPFIWqPm8?autoplay=1&loop=1&playlist=IRKPFIWqPm8&mute=1"
-            title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-      <div class="Rfooter">
-        <div class="eventinfo">
-          <div class="titel">
-            <img src="titelline2.png">
-            <style>
-              .titel {
-                width: 100%;
-                margin: 0px;
-              }
-
-              .titel img {
-                width: 100%;
-                margin: 0px;
-              }
-            </style>
-          </div>
-
-          <div class="titeltext_event">
-            <h1>イベント情報</h1>
-            <style>
-              .titeltext_event h1 {
-                font-size: 35px;
-                margin: -60px 0px 0px 15px;
-              }
-            </style>
-          </div>
-          <div class="eventnow">
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-01-01T00:00:00"
-              data-hide="2025-06-28T01:29:59">
-              <video id="eventVideo" src="event_movie/pattern93.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-06-28T01:30:00"
-              data-hide="2025-07-02T23:59:59">
-              <video id="eventVideo" src="event_movie/pattern7.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-03T00:00:00"
-              data-hide="2025-07-04T23:59:59">
-              <video id="eventVideo" src="event_movie/pattern92.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T00:00:00"
-              data-hide="2025-07-05T10:24:59">
-              <video id="eventVideo" src="event_movie/pattern90.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:25:00"
-              data-hide="2025-07-05T10:29:59">
-              <video id="eventVideo" src="event_movie/pattern2.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:30:00"
-              data-hide="2025-07-05T10:44:59">
-              <video id="eventVideo" src="event_movie/pattern3.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:45:00"
-              data-hide="2025-07-05T10:49:59">
-              <video id="eventVideo" src="event_movie/pattern4.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:50:00"
-              data-hide="2025-07-05T10:59:59">
-              <video id="eventVideo" src="event_movie/pattern5.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:00:00"
-              data-hide="2025-07-05T11:04:59">
-              <video id="eventVideo" src="event_movie/pattern6.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:05:00"
-              data-hide="2025-07-05T11:24:59">
-              <video id="eventVideo" src="event_movie/pattern7.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:25:00"
-              data-hide="2025-07-05T11:29:59">
-              <video id="eventVideo" src="event_movie/pattern8.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:30:00"
-              data-hide="2025-07-05T11:54:59">
-              <video id="eventVideo" src="event_movie/pattern9.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:55:00"
-              data-hide="2025-07-05T11:59:59">
-              <video id="eventVideo" src="event_movie/pattern10.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:00:00"
-              data-hide="2025-07-05T12:20:59">
-              <video id="eventVideo" src="event_movie/pattern11.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:21:00"
-              data-hide="2025-07-05T12:34:59">
-              <video id="eventVideo" src="event_movie/pattern12.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:35:00"
-              data-hide="2025-07-05T12:39:59">
-              <video id="eventVideo" src="event_movie/pattern13.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:40:00"
-              data-hide="2025-07-05T12:54:59">
-              <video id="eventVideo" src="event_movie/pattern14.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:55:00"
-              data-hide="2025-07-05T12:59:59">
-              <video id="eventVideo" src="event_movie/pattern15.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:00:00"
-              data-hide="2025-07-05T13:19:59">
-              <video id="eventVideo" src="event_movie/pattern16.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:20:00"
-              data-hide="2025-07-05T13:24:59">
-              <video id="eventVideo" src="event_movie/pattern17.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:25:00"
-              data-hide="2025-07-05T13:29:59">
-              <video id="eventVideo" src="event_movie/pattern18.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:30:00"
-              data-hide="2025-07-05T13:34:59">
-              <video id="eventVideo" src="event_movie/pattern19.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:35:00"
-              data-hide="2025-07-05T13:49:59">
-              <video id="eventVideo" src="event_movie/pattern20.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:50:00"
-              data-hide="2025-07-05T13:54:59">
-              <video id="eventVideo" src="event_movie/pattern21.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:55:00"
-              data-hide="2025-07-05T14:19:59">
-              <video id="eventVideo" src="event_movie/pattern22.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:20:00"
-              data-hide="2025-07-05T14:24:59">
-              <video id="eventVideo" src="event_movie/pattern23.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:25:00"
-              data-hide="2025-07-05T14:40:59">
-              <video id="eventVideo" src="event_movie/pattern24.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:41:00"
-              data-hide="2025-07-05T23:23:59">
-              <video id="eventVideo" src="event_movie/pattern91.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T00:00:00"
-              data-hide="2025-07-06T10:24:59">
-              <video id="eventVideo" src="event_movie/pattern90.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T10:25:00"
-              data-hide="2025-07-06T10:29:59">
-              <video id="eventVideo" src="event_movie/pattern25.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T10:30:00"
-              data-hide="2025-07-06T10:39:59">
-              <video id="eventVideo" src="event_movie/pattern26.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T10:40:00"
-              data-hide="2025-07-06T10:44:59">
-              <video id="eventVideo" src="event_movie/pattern27.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T10:45:00"
-              data-hide="2025-07-06T11:09:59">
-              <video id="eventVideo" src="event_movie/pattern28.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T11:10:00"
-              data-hide="2025-07-06T11:14:59">
-              <video id="eventVideo" src="event_movie/pattern29.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T11:15:00"
-              data-hide="2025-07-06T11:35:59">
-              <video id="eventVideo" src="event_movie/pattern30.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T11:36:00"
-              data-hide="2025-07-06T12:24:59">
-              <video id="eventVideo" src="event_movie/pattern31.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T12:25:00"
-              data-hide="2025-07-06T12:29:59">
-              <video id="eventVideo" src="event_movie/pattern32.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T12:30:00"
-              data-hide="2025-07-06T15:00:59">
-              <video id="eventVideo" src="event_movie/pattern33.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-06T15:01:00"
-              data-hide="9999-12-31T23:59:59">
-              <video id="eventVideo" src="event_movie/pattern99.mp4" muted playsinline loop autoplay muted></video>
-            </div>
-            <style>
-              .eventstatus h1 {
-                font-size: 30px;
-                color: #ffffff;
-                margin: 5px 0px 5px 15px;
-              }
-
-              .eventtitel {
-                text-align: center;
-              }
-
-              .eventtitel h1 {
-                font-size: 70px;
-                color: #ffffff;
-                margin: 0px;
-              }
-
-              .eventdetails {
-                text-align: center;
-              }
-
-              .eventdetails h1 {
-                font-size: 35px;
-                margin: 0px 0px 10px 0px;
-                color: #ffffff;
-              }
-
-              .eventnow video {
-                width: 100%;
-              }
-            </style>
-          </div>
+    <div class="promotionspace">
+      <div class="content switchB active">
+        <div class="eventtitel">
+          <img src="titelline2.png">
           <style>
-            .eventinfo {
+            .eventtitel {
               width: 100%;
-              height: 260px;
+              margin: 0px;
             }
           </style>
         </div>
-        <div class="promotion">
 
+        <div class="eventtiteltext">
+          <h1>イベント情報</h1>
+          <style>
+            .eventtiteltext h1 {
+              font-size: 27px;
+              margin: -50px 0px 0px 15px;
+            }
+          </style>
+        </div>
+
+        <div class="eventguide">
+          <div class="eventname">
+            <h1>イベント内容</h1>
+          </div>
+          <div class="eventtime">
+            <h1>開始時刻</h1>
+          </div>
+          <div class="eventplace">
+            <h1>実施場所</h1>
+          </div>
+          <style>
+            .eventguide h1 {
+              color: #ffffff;
+              font-size: 23px;
+            }
+
+            .eventname {
+              margin: 0px 0px 0px 530px;
+            }
+
+            .eventtime {
+              margin: 0px 0px 0px 423px;
+            }
+
+            .eventplace {
+              margin: 0px 0px 0px 400px;
+            }
+
+            .eventguide {
+              display: flex;
+              margin: -40px 0px 0px 0px;
+            }
+          </style>
+        </div>
+
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-01-01T00:00:00"
+          data-hide="2025-06-29T23:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>　　　</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>-</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>-</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>-</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-06-30T00:00:00"
+          data-hide="2025-07-03T23:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>　　　</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>本日の予定なし</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-04T00:00:00"
+          data-hide="2025-07-04T23:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>　　　</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>ー</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T00:00:00"
+          data-hide="2025-07-05T09:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>　　　</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>準備中</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:00:00"
+          data-hide="2025-07-05T10:24:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>つぎは</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>書道班　Part１</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>10:30～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:25:00"
+          data-hide="2025-07-05T10:29:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>書道班　Part１</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>10:30～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:30:00"
+          data-hide="2025-07-05T10:44:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>書道班　Part１</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>10:30～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:45:00"
+          data-hide="2025-07-05T10:49:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>ライフスタイル班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>10:50～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:50:00"
+          data-hide="2025-07-05T10:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>ライフスタイル班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>10:50～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:00:00"
+          data-hide="2025-07-05T11:04:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>合唱班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>11:05～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:05:00"
+          data-hide="2025-07-05T11:24:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>合唱班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>11:05～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:25:00"
+          data-hide="2025-07-05T11:29:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>邦楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>11:30～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:30:00"
+          data-hide="2025-07-05T11:54:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>邦楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>11:30～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T11:55:00"
+          data-hide="2025-07-05T11:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>バトン班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>12:00～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:00:00"
+          data-hide="2025-07-05T12:20:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>バトン班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>12:00～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:21:00"
+          data-hide="2025-07-05T12:34:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>休憩中</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>12:20～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:35:00"
+          data-hide="2025-07-05T12:39:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>書道班　Part２</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>12:40～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:40:00"
+          data-hide="2025-07-05T12:54:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>書道班　Part２</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>12:40～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T12:55:00"
+          data-hide="2025-07-05T12:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>吹奏楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:00～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:00:00"
+          data-hide="2025-07-05T13:19:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>吹奏楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:00～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:20:00"
+          data-hide="2025-07-05T13:24:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>ギターマンドリン班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:25～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:25:00"
+          data-hide="2025-07-05T13:49:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>ギターマンドリン班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:25～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:50:00"
+          data-hide="2025-07-05T13:54:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>室内楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:55～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T13:55:00"
+          data-hide="2025-07-05T14:09:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>室内楽班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>13:55～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:10:00"
+          data-hide="2025-07-05T14:14:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>まもなく</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>天文・生物班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>14:15～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:15:00"
+          data-hide="2025-07-05T14:30:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>ただいま</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>天文・生物班</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>14:15～</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T14:31:00"
+          data-hide="2025-07-05T23:59:59">
+          <div class="eventlinetext">
+            <div class="eventlinetext_1">
+              <h1>　　　</h1>
+              <style>
+                .eventlinetext_1 h1 {
+                  font-size: 45px;
+                  margin: 40px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_2">
+              <h1>終了しました</h1>
+              <style>
+                .eventlinetext_2 {
+                  width: 750px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_2 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_3">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_3 {
+                  width: 330px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_3 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext_4">
+              <h1>　</h1>
+              <style>
+                .eventlinetext_4 {
+                  width: 560px;
+                  margin: -10px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext_4 h1 {
+                  font-size: 90px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext {
+                display: flex;
+              }
+            </style>
+          </div>
+        </div>
+
+        <div class="eventline1">
+          <img src="line.png">
+          <style>
+            .eventline1 {
+              width: 100%;
+              margin: 0px;
+            }
+          </style>
+        </div>
+
+        <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:00:00"
+          data-hide="2025-07-05T10:44:59">
+          <div class="eventlinetext2">
+            <div class="eventlinetext2_1">
+              <h1>その次は</h1>
+              <style>
+                .eventlinetext2_1 h1 {
+                  font-size: 40px;
+                  margin: 0px 0px -15px 15px;
+                  color: #ffffff;
+                }
+
+                .eventlinetext2_1 {
+                  width: 200px;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext2_2">
+              <h1>ライフスタイル班</h1>
+              <style>
+                .eventlinetext2_2 {
+                  width: 750px;
+                  margin: 0px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext2_2 h1 {
+                  font-size: 40px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext2_3">
+              <h1>10:50～</h1>
+              <style>
+                .eventlinetext2_3 {
+                  width: 330px;
+                  margin: 0px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext2_3 h1 {
+                  font-size: 40px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <div class="eventlinetext2_4">
+              <h1>第二体育館</h1>
+              <style>
+                .eventlinetext2_4 {
+                  width: 560px;
+                  margin: 0px 10px 0px 10px;
+                  text-align: center;
+                }
+
+                .eventlinetext2_4 h1 {
+                  font-size: 40px;
+                  margin: 0px 0px -15px 0px;
+                  color: #ffffff;
+                }
+              </style>
+            </div>
+            <style>
+              .eventlinetext2 {
+                display: flex;
+              }
+            </style>
+          </div>
         </div>
 
       </div>
     </div>
+    <div class="content switchB">
+      <div class="dateTimeSwitching js-date-time-switching" data-show="2025-01-01T00:00:00"
+        data-hide="2025-06-30T23:59:59">
+        <div class="adjustment">
+          <h1>調整中</h1>
+        </div>
+        <style>
+          .adjustment {
+            border: 12px solid #ff0000;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            width: 100%;
+            height: 260px;
+            margin: 0px;
+          }
+
+          .adjustment h1 {
+            color: #ff0000;
+            font-size: 150px;
+            text-align: center;
+            margin: 0px;
+          }
+        </style>
+      </div>
+      <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-01T10:00:00"
+        data-hide="2025-07-16T18:00:00">
+      </div>
+    </div>
+    <div class="content switchB">
+      <div class="sain">
+        <video id="eventVideo" src="sain.mp4" muted playsinline loop></video>
+        <style>
+          .sain video {
+            width: 100%;
+          }
+
+          .sain {
+            background-color: #FCD908;
+          }
+        </style>
+      </div>
+    </div>
+
     <style>
       .dateTimeSwitching {
         display: none;
-      }
-
-      footer {
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        z-index: 999;
-      }
-
-      .footerbody {
-        display: flex;
-      }
-
-      .Lfooter {
-        width: 50%;
-      }
-
-      .Rfooter {
-        width: 50%;
       }
     </style>
     <script>
@@ -4024,7 +5220,15 @@
       })();
     </script>
     </div>
-
+    <style>
+      footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 999;
+        height: 260px;
+      }
+    </style>
     <script>
       function setupSwitcher(className, interval) {
         let index = 0;
@@ -4034,24 +5238,25 @@
           divs.forEach(div => div.classList.remove('active'));
           divs[index].classList.add('active');
 
+          // 表示された動画がある場合は再生する
+          const video = divs[index].querySelector('video');
+          if (video) {
+            video.currentTime = 0;
+            video.play().catch(err => {
+              console.log("自動再生がブロックされました:", err);
+            });
+          }
+
           index = (index + 1) % divs.length;
         }, interval);
       }
 
-      setupSwitcher('switchA', 20000); // 20秒
+      setupSwitcher('switchA', 15000); // 15秒
       setupSwitcher('switchB', 10000); // 10秒
     </script>
 
     </div>
   </footer>
-
-  <script>
-    window.onload = function () {
-      // ページが完全に読み込まれてから実行される処理
-      console.log("ページがすべて読み込まれました！");
-    };
-  </script>
-
 
 </body>
 

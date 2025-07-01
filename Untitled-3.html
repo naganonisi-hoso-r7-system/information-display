@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト抽出</title>
+</head>
+<body>
+    <div id="output">読み込み中...</div>
+
+    <script>
+        fetch('data.html')
+            .then(response => response.text())
+            .then(html => {
+                // HTMLを仮の要素に変換
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(html, 'https://script.google.com/macros/s/AKfycbwIJpL5YD1wdOQ_9JyPWyl4nOeJ8MjhfjTM6ZBxDUJC0c_sqiA39hySZ4HSBQgBXKH6uw/exec');
+
+                // ボディ内のテキストのみを取得
+                document.getElementById('output').textContent = doc.body.innerText;
+            })
+            .catch(error => console.error('エラー:', error));
+    </script>
+</body>
+</html>

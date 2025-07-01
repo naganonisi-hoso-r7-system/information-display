@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+    <style>
+        .content {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="info">
+        <div class="info_img">
+            <img src="info.png">
+        </div>
+        <div class="info_text">
+            <h1>調整中</h1>
+        </div>
+        <style>
+            .info_img img {
+                max-height: 110px;
+            }
+
+            .info_img {
+                background-color: rgb(255, 255, 255);
+                height: 110px;
+                width: 295px;
+            }
+
+            .info_text {
+                background-color: black;
+                width: 100%;
+                height: 110px;
+            }
+
+            .info_text h1 {
+                color: #ffffff;
+                font-size: 80px;
+                margin: 0px;
+            }
+
+            .info {
+                display: flex;
+            }
+        </style>
+    </div>
+
+    <div class="guide">
+        <div class="name">
+            <h1>商品名</h1>
+        </div>
+        <div class="place">
+            <h1>販売場所</h1>
+        </div>
+        <div class="price">
+            <h1>価格(税込)</h1>
+        </div>
+        <div class="stoc01">
+            <h1>在庫状況</h1>
+        </div>
+        <div class="stoc02">
+            <h1>再販情報</h1>
+        </div>
+        <style>
+            .guide h1 {
+                color: #ffffff;
+                font-size: 25px;
+            }
+
+            .name {
+                margin: 0px 0px 0px 305px;
+            }
+
+            .place {
+                margin: 0px 0px 0px 340px;
+            }
+
+            .price {
+                margin: 0px 0px 0px 205px;
+            }
+
+            .stoc01 {
+                margin: 0px 0px 0px 145px;
+            }
+
+            .stoc02 {
+                margin: 0px 0px 0px 250px;
+            }
+
+            .guide {
+                display: flex;
+                margin: 0px;
+            }
+        </style>
+    </div>
+
+    <div class="info_block">
+        <div id="div1" class="content active">
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス３</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス４</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス５</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス６</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス７</p>
+                </div>
+                <div class="place_info">
+                    <p>ーーーー室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <style>
+                .name_info {
+                    width: 600px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .place_info {
+                    width: 350px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .price_info {
+                    width: 230px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .stoc_info {
+                    width: 320px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .resail_info {
+                    width: 382px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .textline {
+                    display: flex;
+                }
+            </style>
+        </div>
+        <div id="div2" class="content">
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス８</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス９</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１０</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１１</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１２</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１３</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１４</p>
+                </div>
+                <div class="place_info">
+                    <p>ーーーー室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <style>
+                .name_info {
+                    width: 600px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .place_info {
+                    width: 350px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .price_info {
+                    width: 230px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .stoc_info {
+                    width: 320px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .resail_info {
+                    width: 382px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .textline {
+                    display: flex;
+                }
+            </style>
+        </div>
+        <div id="div3" class="content">
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１５</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１６</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１７</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１８</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス１９</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２０</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２１</p>
+                </div>
+                <div class="place_info">
+                    <p>ーーーー室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <style>
+                .name_info {
+                    width: 600px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .place_info {
+                    width: 350px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .price_info {
+                    width: 230px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .stoc_info {
+                    width: 320px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .resail_info {
+                    width: 382px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .textline {
+                    display: flex;
+                }
+            </style>
+        </div>
+        <div id="div3" class="content">
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２２</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２３</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２４</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２５</p>
+                </div>
+                <div class="place_info">
+                    <p>ＸＸ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２６</p>
+                </div>
+                <div class="place_info">
+                    <p>ＹＹ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>YYY円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２７</p>
+                </div>
+                <div class="place_info">
+                    <p>ＺＺ番教室</p>
+                </div>
+                <div class="price_info">
+                    <p>ZZZ円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <div class="textline">
+                <div class="name_info">
+                    <p>アドレス２８</p>
+                </div>
+                <div class="place_info">
+                    <p>ーーーー室</p>
+                </div>
+                <div class="price_info">
+                    <p>XXX円</p>
+                </div>
+                <div class="stoc_info">
+                    <p>Loading…</p>
+                </div>
+                <div class="resail_info">
+                    <p>Loading…</p>
+                </div>
+            </div>
+            <style>
+                .name_info {
+                    width: 600px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .place_info {
+                    width: 350px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .price_info {
+                    width: 230px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .stoc_info {
+                    width: 320px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .resail_info {
+                    width: 382px;
+                    height: 120px;
+                    margin: 0px;
+                    background-color: rgb(0, 0, 0);
+                }
+
+                .textline {
+                    display: flex;
+                }
+            </style>
+        </div>
+        <div id="div3" class="content">内容5</div>
+        <div id="div3" class="content">内容6</div>
+        <style>
+            .info_block p {
+                color: rgb(255, 255, 255);
+                margin: 10px 0px 10px 0px;
+                font-size: 60px;
+                text-align: center;
+                line-height: 100px;
+            }
+
+            .info_block {
+                background-color: black;
+                width: 1882px;
+                height: 840px;
+                margin: -1% 1% 1% 1%;
+            }
+        </style>
+    </div>
+
+    <script>
+        let index = 0;
+        const divs = document.querySelectorAll('.content');
+
+        function switchDiv() {
+            divs.forEach(div => div.classList.remove('active')); // すべて非表示
+            divs[index].classList.add('active'); // 現在のインデックスの要素を表示
+            index = (index + 1) % divs.length; // インデックスを更新
+        }
+
+        setInterval(switchDiv, 3000); // 3秒ごとに切り替え
+    </script>
+
+</body>
+
+</html>

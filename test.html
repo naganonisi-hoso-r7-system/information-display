@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>sample</title>
+    <style>
+
+    </style>
+
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="info">
+        <div class="info_img">
+            <img src="info.png">
+        </div>
+        <div class="info_text">
+            <h1>調整中</h1>
+        </div>
+        <style>
+            .info_img img {
+                max-height: 110px;
+            }
+
+            .info_img {
+                background-color: rgb(255, 255, 255);
+                height: 110px;
+                width: 295px;
+            }
+
+            .info_text {
+                background-color: rgb(255, 255, 255);
+                width: 100%;
+                height: 110px;
+            }
+
+            .info_text h1 {
+                color: #ffffff;
+                font-size: 80px;
+                margin: 0px;
+            }
+
+            .info {
+                display: flex;
+            }
+        </style>
+    </div>
+
+    <div class="guide">
+        <div class="name">
+            <h1>商品名</h1>
+        </div>
+        <div class="place">
+            <h1>販売場所</h1>
+        </div>
+        <div class="price">
+            <h1>価格</h1>
+        </div>
+        <div class="stoc01">
+            <h1>在庫状況</h1>
+        </div>
+        <div class="stoc02">
+            <h1>再販情報</h1>
+        </div>
+        <style>
+            .guide h1 {
+                color: #ffffff;
+                font-size: 25px;
+            }
+
+            .name {
+                margin: 0px 0px 0px 280px;
+            }
+
+            .place {
+                margin: 0px 0px 0px 390px;
+            }
+
+            .price {
+                margin: 0px 0px 0px 205px;
+            }
+
+            .stoc01 {
+                margin: 0px 0px 0px 205px;
+            }
+
+            .stoc02 {
+                margin: 0px 0px 0px 250px;
+            }
+
+            .guide {
+                display: flex;
+                margin: 0px;
+            }
+        </style>
+    </div>
+
+    <div class="stoc_info">
+        <div class="info_text">
+            <div id="div1" class="content active">内容1</div>
+            <div id="div2" class="content">内容2</div>
+            <div id="div3" class="content">内容3</div>
+
+            <script>
+                let index = 0;
+                const divs = document.querySelectorAll('.content');
+
+                function switchDiv() {
+                    divs.forEach(div => div.classList.remove('active')); // すべて非表示
+                    divs[index].classList.add('active'); // 現在のインデックスの要素を表示
+                    index = (index + 1) % divs.length; // インデックスを更新
+                }
+
+                setInterval(switchDiv, 3000); // 3秒ごとに切り替え
+            </script>
+        </div>
+    </div>
+    <style>
+        .stoc_info p {
+            color: rgb(255, 255, 255);
+            margin: 10px 0px 10px 0px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .stoc_info {
+            background - color: black;
+            width: 1882px;
+            height: 900px;
+            margin: -1% 1% 1% 1%;
+        }
+    </style>
+    </div>
+
+</body>
+
+</html>

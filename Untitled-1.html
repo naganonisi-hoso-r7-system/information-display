@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>sample</title>
+  <link href="index.css" rel="stylesheet">
+  <style>
+    .info_img img {
+      max-height: 110px;
+    }
+
+    .info_img {
+      background-color: rgb(255, 255, 255);
+      height: 110px;
+      width: 295px;
+    }
+
+    .info_text {
+      background-color: black;
+      width: 100%;
+      height: 110px;
+    }
+
+    .info {
+      display: flex;
+    }
+
+    .guide h1 {
+      color: #ffffff;
+      font-size: 25px;
+    }
+
+    .guide {
+      display: flex;
+      margin: 0px;
+    }
+
+    .textline01 {
+      display: flex;
+    }
+
+    .stoc_info p {
+      color: rgb(255, 255, 255);
+    }
+
+    .stoc_info {
+      background-color: black;
+      width: 1882px;
+      height: 900px;
+      margin: -1% 1% 1% 1%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="info">
+    <div class="info_img">
+      <img src="info.png">
+    </div>
+    <div class="info_text"></div>
+  </div>
+
+  <div class="guide">
+    <h1>商品名</h1>
+    <h1>販売場所</h1>
+    <h1>価格</h1>
+    <h1>在庫状況</h1>
+    <h1>再販情報</h1>
+  </div>
+
+  <div class="stoc_info">
+    <div class="info_text">
+      <div class="textline01">
+        <p id="message-1">Loading...</p>
+        <p id="message-2">Loading...</p>
+        <p id="message-3">Loading...</p>
+        <p id="message-4">Loading...</p>
+        <p id="message-5">Loading...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const messages = [
+      ['アドレス１', 'アドレス９', 'アドレス１７'],
+      ['０１番教室', '１０番教室', '１１番教室'],
+      ['XXX円', 'YYY円', 'ZZZ円']
+    ];
+
+    const dataSets = [
+      {
+        id: "message-4",
+        urls: [
+          'https://script.google.com/macros/s/AKfycbyiLVBrBGplH-qum49qXlMZl3nOKeI3fKFyqb5Wi-0btsp7fVd1tSHjb4KRuAynaKyQQg/exec'
+        ]
+      },
+      {
+        id: "message-5",
+        urls: [
+          'https://script.google.com/macros/s/AKfycbxoRDC1Fa2gJV6y1KLNDeiRkucABSH1aLwbzGhHrg4XJGs-CBIOpI5ZhslSitjhaD03SA/exec'
+        ]
+      }
+    ];
+
+    let messagesList = {};
+    let maxLength = 0;
+
+    function fetchData() {
+      let fetchPromises = dataSets.map(dataSet =>
+        Promise.all(dataSet.urls.map(url =>
+          fetch(url)
+            .then(response => response.text())
+            .then(data => data.split(','))
+            .catch(error => {
+              console.error(`Error fetching data from ${url}:`, error);
+              return [];
+            })
+        )).then(results => {
+          messagesList[dataSet.id] = results.flat();
+          maxLength = Math.max(maxLength, messagesList[dataSet.id].length);
+        })
+      );
+
+      Promise.all(fetchPromises).then(() => {
+        setTimeout(startMessageRotation, 20000);
+      });
+    }
+
+    function startMessageRotation() {
+      let i = 0;
+      function updateMessages() {
+        document.getElementById('message-1').textContent = messages[0][i % messages[0].length];
+        document.getElementById('message-2').textContent = messages[1][i % messages[1].length];
+        document.getElementById('message-3').textContent = messages[2][i % messages[2].length];
+
+        dataSets.forEach(dataSet => {
+          const messageElement = document.getElementById(dataSet.id);
+          const dataMessages = messagesList[dataSet.id];
+          if (dataMessages.length > 0) {
+            messageElement.textContent = dataMessages[i % dataMessages.length];
+          } else {
+            messageElement.textContent = 'No data';
+          }
+        });
+        i++;
+      }
+      updateMessages();
+      setInterval(updateMessages, 20000);
+    }
+
+    fetchData();
+  </script>
+</body>
+
+</html>
