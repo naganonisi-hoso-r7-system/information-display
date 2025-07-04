@@ -363,6 +363,128 @@
                     </div>
                     <hr>
                     <div class="textline">
+                        <div class="name_info">
+                            <p>チュロス（シナモン）</p>
+                        </div>
+                        <div class="place_info">
+                            <p>３年１組</p>
+                        </div>
+                        <div class="price_info">
+                            <p id="data-sheet803">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbxxt3uguEcw4F-ZAFho3qyzZ8I4fu3oJXfccm7LMgiinbom_YaaW9yvxHQuOAG0Y86u/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet803').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 803:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+
+                        </div>
+                        <div class="stoc_info">
+                            <p id="data-sheet804">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbzNkvmCUme3AbB34TnX3O0GzlBSkDQvmxZGBEvykJFp1Xk09Cx965bL3vSjZ7Zp_Vs/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet804').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 804:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+                        </div>
+                        <div class="resail_info">
+                            <p id="data-sheet805">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbwQ11pCfF6wsNEqU1HnKVPFjHI4c9bdC5e0R2V97R7xs8RUQ8j_JU5mhyg7KjoRpT9f/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet805').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 805:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="textline">
+                        <div class="name_info_for25">
+                            <p>チュロス<br>（シュガー・シナモン）</p>
+                        </div>
+                        <div class="place_info">
+                            <p>３年１組</p>
+                        </div>
+                        <div class="price_info">
+                            <p id="data-sheet813">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbwNHN5QvJ99lNl-dvTmQsrtYce3x6pbkRpVQYehNDPbnBNQzuL1iTnHlCbcxCeLhO9ylA/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet813').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 813:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+
+                        </div>
+                        <div class="stoc_info">
+                            <p id="data-sheet814">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycby8MxoYm6fGCU32rkqQBFO_Fb6KQ81wwbNxON4CIsZBoQiZ-2u6YdE9CQhexvWfV5l7/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet814').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 814:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+                        </div>
+                        <div class="resail_info">
+                            <p id="data-sheet815">Loading…</p>
+                            <script>
+                                function fetchData() {
+                                    fetch('https://script.google.com/macros/s/AKfycbyXA69tg0L7tlkWMxQXxS8alWHjzhq8fzzmJSOdzZTFB77-60NAvBjCX9iR4ydf6919kg/exec')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById('data-sheet815').innerText = data;
+                                        })
+                                        .catch(error => console.error('Error fetching data from sheet 815:', error));
+                                }
+
+                                fetchData();
+
+                                setInterval(fetchData, 60000);
+                            </script>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="textline">
                         <div class="name_info_for25">
                             <p>コロッケバーガー＆ポテト</p>
                         </div>
@@ -727,7 +849,8 @@
                             </script>
                         </div>
                     </div>
-                    <hr>
+                </div>
+                <div id="div2" class="content switchA">
                     <div class="textline">
                         <div class="name_info">
                             <p>フルーツ飴（ぶどう）</p>
@@ -848,8 +971,7 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div id="div2" class="content switchA">
+                    <hr>
                     <div class="textline">
                         <div class="name_info">
                             <p>フルーツ飴（みかん）</p>
@@ -1337,7 +1459,8 @@
                             </script>
                         </div>
                     </div>
-                    <hr>
+                </div>
+                <div id="div3" class="content switchA">
                     <div class="textline">
                         <div class="name_info">
                             <p>ピザ（照り焼きチキン）</p>
@@ -1459,8 +1582,7 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div id="div3" class="content switchA">
+                    <hr>
                     <div class="textline">
                         <div class="name_info">
                             <p>焼きそば</p>
@@ -1948,7 +2070,8 @@
                             </script>
                         </div>
                     </div>
-                    <hr>
+                </div>
+                <div id="div4" class="content switchA">
                     <div class="textline">
                         <div class="name_info">
                             <p>冷凍チョコバナナ</p>
@@ -2070,8 +2193,7 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div id="div4" class="content switchA">
+                    <hr>
                     <div class="textline">
                         <div class="name_info">
                             <p>タピオカ（抹茶）</p>
@@ -2559,7 +2681,8 @@
                             </script>
                         </div>
                     </div>
-                    <hr>
+                </div>
+                <div id="div5" class="content switchA">
                     <div class="textline">
                         <div class="name_info">
                             <p>おにぎり（ツナ）</p>
@@ -2681,8 +2804,7 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div id="div5" class="content switchA">
+                    <hr>
                     <div class="textline">
                         <div class="name_info">
                             <p>パン（肉球パン）</p>
@@ -3170,7 +3292,8 @@
                             </script>
                         </div>
                     </div>
-                    <hr>
+                </div>
+                <div id="div6" class="content switchA">
                     <div class="textline">
                         <div class="name_info">
                             <p>リボンストラップ</p>
@@ -3292,8 +3415,7 @@
                             </script>
                         </div>
                     </div>
-                </div>
-                <div id="div6" class="content switchA">
+                    <hr>
                     <div class="textline">
                         <div class="name_info_for23">
                             <p>フェアトレードクッキー<br>（レモンシュガー）</p>
@@ -3574,23 +3696,6 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="textline">
-                        <div class="name_info">
-                            <p>　</p>
-                        </div>
-                        <div class="place_info">
-                            <p>　</p>
-                        </div>
-                        <div class="price_info">
-                            <p>　</p>
-                        </div>
-                        <div class="stoc_info">
-                            <p></p>
-                        </div>
-                        <div class="stoc_info">
-                            <p></p>
-                        </div>
-                    </div>
                 </div>
 
                 <style>
@@ -3977,24 +4082,11 @@
                 </style>
             </div>
             <div class="videoblock">
-                <div class="dateTimeSwitching js-date-time-switching" data-show="2025-01-01T00:00:00"
-                    data-hide="2025-07-05T09:59:59">
-                    <img src="videostop.png">
-                    <style>
-                        .videoblock img {
-                            width: 100%;
-                        }
-                    </style>
-                </div>
-                <div class="dateTimeSwitching js-date-time-switching" data-show="2025-07-05T10:00:00"
-                    data-hide="2025-12-31T23:59:59">
-                    <div class="movie" style="width: 100%; aspect-ratio: 16 / 9;">
-                        <iframe width="100%" height="100%"
-                            src="https://www.youtube.com/embed/IRKPFIWqPm8?autoplay=1&loop=1&playlist=IRKPFIWqPm8&mute=1"
-                            title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+                <div class="movie" style="width: 100%; aspect-ratio: 16 / 9;">
+                    <iframe width="100%" height="100%"
+                        src="https://www.youtube.com/embed/3EPOP6roX4k?autoplay=1&loop=1&playlist=3EPOP6roX4k&mute=1"
+                        title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
                 </div>
             </div>
             <div class="promotion">
